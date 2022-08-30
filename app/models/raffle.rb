@@ -1,4 +1,4 @@
 class Raffle < ApplicationRecord
   belongs_to :creator
-  has_one :token
+  belongs_to :token
 end
