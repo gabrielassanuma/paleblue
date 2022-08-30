@@ -46,6 +46,21 @@ max_mintable = [
   nil
 ]
 
+puts 'Create tokens...'
+5.times do |index|
+  token = Token.new(
+    tk_address: SecureRandom.hex,
+    unlimited: unlimited[index],
+    max_mint: max_mintable[index],
+    minted_so_far: rand(1...5_000_000),
+    user: users.first
+  )
+  token.save!
+end
+puts 'tokens done'
+
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
 puts 'Create creator'
 creator = Creator.new(
   q1: Faker::Lorem.paragraphs(number: 1),
@@ -63,23 +78,11 @@ creator = Creator.new(
   tag3: Faker::Food.dish,
   token: Token.first
 )
+puts "Hello"
+creator.save
+creator.errors.full_messages
 creator.save!
 puts 'creator done'
-
-puts 'Create tokens...'
-5.times do |index|
-  token = Token.new(
-    tk_address: SecureRandom.hex,
-    unlimited: unlimited[index],
-    max_mint: max_mintable[index],
-    minted_so_far: rand(1...5_000_000),
-    user: users.first
-  )
-  token.save!
-end
-puts 'tokens done'
-
-tokens = Token.all
 
 puts 'Create tk_balance...'
 2.times do
