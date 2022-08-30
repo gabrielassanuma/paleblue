@@ -2,9 +2,9 @@
 
 class DeviseCreateCreators < ActiveRecord::Migration[7.0]
   def change
-    create_table :creators, primary_key: :tk_address do |t|
+    create_table :creators do |t|
       ## Database authenticatable
-      t.string :email, null: false, default: ""
+      t.references :token, null: false, foreign_key: true
       t.string :encrypted_password, null: false, default: ""
       t.text :q1
       t.text :q2
@@ -17,6 +17,7 @@ class DeviseCreateCreators < ActiveRecord::Migration[7.0]
       t.string :instagram
       t.string :linkedin
       t.string :website
+      t.string :discord
       t.string :tag1
       t.string :tag2
       t.string :tag3
@@ -49,8 +50,6 @@ class DeviseCreateCreators < ActiveRecord::Migration[7.0]
 
       t.timestamps null: false
     end
-    change_column :creators, :tk_address, :string
-    add_index :creators, :email,                unique: true
     add_index :creators, :reset_password_token, unique: true
     # add_index :creators, :confirmation_token,   unique: true
     # add_index :creators, :unlock_token,         unique: true

@@ -1,4 +1,4 @@
 class Raffle < ApplicationRecord
   belongs_to :creator
-  belongs_to :solana_token
+  has_one :token
 end
