@@ -71,8 +71,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_181151) do
     t.boolean "unlimited"
     t.bigint "max_mint"
     t.bigint "minted_so_far"
+    t.float "price"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tokens_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -97,6 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_181151) do
   add_foreign_key "raffles", "tokens"
   add_foreign_key "tk_balances", "tokens"
   add_foreign_key "tk_balances", "users"
+  add_foreign_key "tokens", "users"
   add_foreign_key "transactions", "tokens"
   add_foreign_key "transactions", "users", column: "from_user_id"
   add_foreign_key "transactions", "users", column: "to_user_id"
