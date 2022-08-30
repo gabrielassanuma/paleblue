@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   resources :creators, only: ['new', 'create', 'show', 'edit']
   get 'files/new', to: 'creators#files_new'
   get 'files/create', to: 'creators#files_create'
-  resources :transactions, only: ['new', 'create']
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :transactions, only: ['new', 'create', 'index', 'show']
+  resources :tokens, only: ['new', 'create', 'show']
+  resources :raffles, only: ['new', 'create', 'show']
 end
