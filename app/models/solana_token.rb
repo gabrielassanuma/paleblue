@@ -1,2 +1,0 @@
-class SolanaToken < ApplicationRecord
-end
