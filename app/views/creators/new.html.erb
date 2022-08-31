@@ -1,2 +1,20 @@
-<h1>Creators#new</h1>
-<p>Find me in app/views/creators/new.html.erb</p>
+<div class="row justify-content-center">
+  <div  class="col-12 col-sm-4">
+    <%= simple_form_for @creator do |f| %>
+      <%= f.input :q1, as: :text, required: false %>
+      <%= f.input :q2, as: :text, required: false %>
+      <%= f.input :q3, as: :text, required: false %>
+      <%= f.input :non_profit, required: false, as: :text %>
+      <%= f.input :location, required: false, as: :text %>
+      <%= f.input :facebook, required: false, as: :text %>
+      <%= f.input :instagram, required: false, as: :text %>
+      <%= f.input :linkedin, required: false, as: :text %>
+      <%= f.input :website, required: false, as: :text %>
+      <%= f.input :discord, required: false, as: :text %>
+      <%= f.input :tag1, required: false, as: :text %>
+      <%= f.input :tag2, required: false, as: :text %>
+      <%= f.input :tag3, required: false, as: :text %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
