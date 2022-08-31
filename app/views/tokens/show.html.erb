@@ -1,2 +1,12 @@
-<h1>Tokens#show</h1>
-<p>Find me in app/views/tokens/show.html.erb</p>
+<h2>Token Address: <%= @token.tk_address %></h3>
+<h2>Token Nickname: <%= @token.nickname %></h2>
+<h2>Is there a mint limit? <%= @token.unlimited %></h2>
+<h2>How many can be minted? <%= @token.max_mint %></h2>
+<h2>How many have been minted? <%= @token.minted_so_far %></h2><br>
+
+<h2>Mint Authority Address: <%= @token.user.wlt_address %></h2>
+<h2>Mint Authority Nickname: <%= @token.user.nickname %></h2><br>
+
+<h2>Balance for: <%= @tk_balance.user %></h2>
+<h2>Balance: <%= @tk_balance.tk_amount %></h2>
+<h2>Token: <%= @tk_balance.token %></h2>

@@ -17,13 +17,26 @@ puts 'Destroying tk_balance'
 TkBalance.destroy_all
 puts 'Destroying transactions'
 Transaction.destroy_all
+puts 'Destroying raffles'
+Raffle.destroy_all
+puts 'Destroying creators'
+Creator.destroy_all
 
 puts "Create users..."
 password = "111111"
-2.times do
+
+site_users = [
+  'PaleBlue ID Generator',
+  'PaleBlue Donation Account',
+  'PaleBlue Raffle Ticket Generator',
+  'Donation Token Generator',
+  'Creator',
+  'Appreciator'
+]
+2.times do |index|
   user = User.new(
     wlt_address: SecureRandom.hex(10),
-    nickname: Faker::Cannabis.cannabinoid_abbreviation,
+    nickname: site_users[index],
     password:,
     password_confirmation: password
   )

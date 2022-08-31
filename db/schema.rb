@@ -91,10 +91,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_153751) do
   create_table "tokens", force: :cascade do |t|
     t.string "tk_address"
     t.string "nickname"
-    t.boolean "unlimited"
-    t.bigint "max_mint"
-    t.bigint "minted_so_far"
-    t.float "price"
+    t.boolean "unlimited", default: false
+    t.bigint "max_mint", default: 1
+    t.bigint "minted_so_far", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
