@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SolanaTransactionTest < ActiveSupport::TestCase
+class TransactionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
