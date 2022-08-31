@@ -1,2 +1,10 @@
-<h1>Tokens#index</h1>
-<p>Find me in app/views/tokens/index.html.erb</p>
+<h2>Tokens#index</h2><br>
+  <% @tokens.each do |token| %>
+    <h3>Token Nickname: <%= token.nickname %></h3>
+    <p>Token Address: <%= token.tk_address %></p>
+    <p>Is there a mint limit? <%= token.unlimited %></p>
+    <p>How many can be minted? <%= token.max_mint %></p>
+    <p>How many have been minted? <%= token.minted_so_far %></p>
+    <p>Mint Authority Nickname: <%= token.user.nickname %></p>
+    <p>Mint Authority Address: <%= token.user.wlt_address %></p><br>
+  <% end %>

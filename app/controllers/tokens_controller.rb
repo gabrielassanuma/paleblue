@@ -1,5 +1,3 @@
-require 'faker'
-
 class TokensController < ApplicationController
   def index
     @tokens = Token.all
@@ -11,13 +9,13 @@ class TokensController < ApplicationController
 
   def create
     @token = Token.new(token_params)
-    @token.tk_address = new_tk_address
     @token.user = current_user
-    @token.max_mint = 1
-    @token.minted_so_far = 0
-    @token.unlimited = false
+
     if @token.save
-      redirect_to token_path(@token), notice: 'token successfully added.'
+      create_tk_balance(@token.max_mint)
+      @token.minted_so_far = @token.max_mint
+
+      redirect_to token_path(@token)
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,19 +23,29 @@ class TokensController < ApplicationController
 
   def show
     @token = Token.find(params[:id])
+    @tk_balance = TkBalance.find_by(token: @token)
   end
 
   private
 
   def my_tokens
-    @tokens = Token.where(token.user == @user)
+    @tokens = Token.where(user: @user)
+  end
+
+  def my_token_balances
+    @tk_balances = TkBalance.where(user: current_user)
+  end
+
+  def create_tk_balance(tk_amount)
+    @tk_balance = TkBalance.new(
+      tk_amount:,
+      token: @token,
+      user: @token.user
+    )
+    @tk_balance.save
   end
 
   def token_params
     params.require(:token).permit(:nickname, :photo)
-  end
-
-  def new_tk_address
-    SecureRandom.hex
   end
 end
