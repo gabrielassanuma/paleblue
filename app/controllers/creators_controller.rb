@@ -25,10 +25,6 @@ class CreatorsController < ApplicationController
 
   def create_pale_blue_id
     token = Token.new(
-      tk_address: new_tk_address,
-      unlimited: false,
-      max_mint: 1,
-      minted_so_far: 0,
       nickname: "PaleBlue ID",
       user: User.first
     )
