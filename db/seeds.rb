@@ -19,10 +19,13 @@ puts 'Destroying transactions'
 Transaction.destroy_all
 
 puts "Create users..."
+password = "111111"
 2.times do
   user = User.new(
     wlt_address: SecureRandom.hex(10),
-    nickname: Faker::Cannabis.cannabinoid_abbreviation
+    nickname: Faker::Cannabis.cannabinoid_abbreviation,
+    password:,
+    password_confirmation: password
   )
   user.save!
 end

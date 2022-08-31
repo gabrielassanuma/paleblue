@@ -1,26 +1,10 @@
-# frozen_string_literal: true
-
-class DeviseCreateCreators < ActiveRecord::Migration[7.0]
+class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
-    create_table :creators do |t|
+    create_table :users do |t|
       ## Database authenticatable
-      t.references :token, null: false, foreign_key: true
+      t.string :wlt_address
       t.string :encrypted_password, null: false, default: ""
-      t.text :q1
-      t.text :q2
-      t.text :q3
-      t.boolean :non_profit
-      t.text :about
-      t.string :location
-      t.string :facebook
-      t.string :twitter
-      t.string :instagram
-      t.string :linkedin
-      t.string :website
-      t.string :discord
-      t.string :tag1
-      t.string :tag2
-      t.string :tag3
+      t.string :nickname
 
       ## Recoverable
       t.string   :reset_password_token
@@ -47,11 +31,8 @@ class DeviseCreateCreators < ActiveRecord::Migration[7.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
       t.timestamps null: false
     end
-    add_index :creators, :reset_password_token, unique: true
-    # add_index :creators, :confirmation_token,   unique: true
-    # add_index :creators, :unlock_token,         unique: true
+    add_index :users, :reset_password_token, unique: true
   end
 end
