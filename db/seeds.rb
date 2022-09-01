@@ -133,8 +133,8 @@ sol_token = Token.new(
 sol_token.save!
 
 sol_token_balance = TkBalance.new(
-  tk_amount: raffle_ticket.max_mint,
-  token: raffle_ticket,
+  tk_amount: sol_token.max_mint,
+  token: sol_token,
   user: User.fifth
 )
 sol_token_balance.save!
