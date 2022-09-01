@@ -20,7 +20,9 @@
 <h3><strong>Mint Authority Nickname:</strong> <%= @token.user.nickname %></h3>
 <h3><strong>Mint Authority Address:</strong> <%= @token.user.wlt_address %></h3><br>
 
-<h3><strong>Balance for: </strong><%= @tk_balance.user.nickname %></h3>
-<h3><strong>Token Nickname: </strong><%= @tk_balance.token.nickname %></h3>
-<h3><strong>Balance: </strong><%= @tk_balance.tk_amount %></h3>
-</div>
+<div><h3>Current Owner(s):</h3><br>
+  <% @owners.each_with_index do |owner, index| %>
+    <p>Wallet Nickname: <%= owner.nickname %></p>
+    <p>Wallet Address: <%= owner.wlt_address%></p>
+    <p>Balance: <%= @balances[index]%></p>
+  <% end %></div>
