@@ -1,7 +1,7 @@
 <%= simple_form_for [@creator, @transaction] do |f| %>
   <%= f.input :tk_amount %>
   <%= f.association :token,
-                    collection: @tokens,
+                    collection: current_user.tokens.where(nickname: ['SOL']),
                     label_method: :nickname %>
   <%= f.button :submit %>
 <% end %>

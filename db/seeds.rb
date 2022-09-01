@@ -31,8 +31,7 @@ site_users = [
   'PaleBlue Raffle Ticket Generator',
   'Donation Token Generator',
   'Creator',
-  'Appreciator',
-  'PaleBlue Income'
+  'Appreciator'
 ]
 
 6.times do |index|
@@ -64,7 +63,7 @@ pale_blue_balance = TkBalance.new(
 )
 pale_blue_balance.save!
 
-token = Token.find(1)
+token = Token.first
 token.minted_so_far += 1 if pale_blue_id.minted_so_far < pale_blue_id.max_mint
 token.save!
 
@@ -82,7 +81,7 @@ raffle_item_balance = TkBalance.new(
 )
 raffle_item_balance.save!
 
-token = Token.find(2)
+token = Token.second
 token.minted_so_far += 1 if raffle_item.minted_so_far < raffle_item.max_mint
 token.save!
 
@@ -101,7 +100,7 @@ creator_file_key_balance = TkBalance.new(
 )
 creator_file_key_balance.save!
 
-token = Token.find(3)
+token = Token.third
 token.minted_so_far += 1
 token.save!
 
@@ -120,7 +119,7 @@ raffle_ticket_balance = TkBalance.new(
 )
 raffle_ticket_balance.save!
 
-token = Token.find(4)
+token = Token.fourth
 token.minted_so_far += 1
 token.save!
 
@@ -135,16 +134,39 @@ sol_token.save!
 sol_token_balance = TkBalance.new(
   tk_amount: sol_token.max_mint,
   token: sol_token,
-  user: User.fifth
+  user: User.fourth
 )
 sol_token_balance.save!
 
 sol_token_balance.tk_amount = 50
 sol_token_balance.save!
 
-token = Token.find(5)
+token = Token.last
 token.minted_so_far += 50
 token.save!
+
+creator_token_balance = TkBalance.new(
+  token: sol_token,
+  user: User.fifth
+)
+creator_token_balance.save!
+
+appreciator_token_balance = TkBalance.new(
+  token: sol_token,
+  user: User.last
+)
+appreciator_token_balance.save!
+
+=begin
+
+transaction_new = Transaction.new(
+  tk_amount: 30,
+  token: Token.last,
+  from_user: User.fourth,
+  to_user: User.last
+)
+transaction_new.save!
+=end
 
 puts 'tokens and balances done'
 
