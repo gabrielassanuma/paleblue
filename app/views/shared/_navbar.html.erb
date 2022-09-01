@@ -1,14 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon" style="background-color: black">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <p style="font-size: 34px">PaleBlue</p>
+      <p style="font-size: 34px; color: black;">PaleBlue</p>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
