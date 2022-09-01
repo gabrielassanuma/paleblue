@@ -4,6 +4,7 @@ class CreateCreators < ActiveRecord::Migration[7.0]
   def change
     create_table :creators do |t|
       t.references :token, null: false, foreign_key: true
+      t.string :title
       t.text :q1
       t.text :q2
       t.text :q3
@@ -19,8 +20,6 @@ class CreateCreators < ActiveRecord::Migration[7.0]
       t.string :tag1
       t.string :tag2
       t.string :tag3
-
-
 
       t.timestamps null: false
     end

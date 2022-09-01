@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :creators, only: ['show', 'new', 'create', 'edit']
   get 'nft/new', to: 'creators#nft_new'
   post 'nft', to: 'creators#nft_create', as: :nfts
+
+
+  resources :creators, only: ['new', 'create', 'show', 'edit', 'index'] do
+    resources :transactions, only: ['new', 'create']
+
   resources :transactions, only: ['new', 'create', 'index', 'show']
-  resources :tokens, only: ['new', 'create', 'show']
-  resources :raffles, only: ['new', 'create', 'show']
+  resources :tokens, only: ['new', 'create', 'show', 'index']
+  resources :raffles, only: ['new', 'create', 'show', 'index']
 end

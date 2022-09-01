@@ -1,2 +1,9 @@
-<h1>Transactions#new</h1>
-<p>Find me in app/views/transactions/new.html.erb</p>
+<%= current_user.tokens %>
+
+<%= simple_form_for [@creator, @transaction] do |f| %>
+  <%= f.input :tk_amount %>
+  <%= f.association :token,
+                    collection: current_user.tk_balances,
+                    label_method: :token %>
+  <%= f.button :submit %>
+<% end %>

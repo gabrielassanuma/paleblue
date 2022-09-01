@@ -1,1 +1,9 @@
-<H1><%= @creator%></H1>
+<h2><%= @creator.title %></h2><br>
+<p>Non-Profit Status: <%= @creator.non_profit %></p>
+<p>Location: <%= @creator.location %></p>
+<p>Tag: <%= @creator.tag1 %></p>
+<p>Tag: <%= @creator.tag2 %></p>
+<p>Tag: <%= @creator.tag3 %></p>
+
+<%= link_to "Donate", new_creator_transaction_path(@creator)%>
+

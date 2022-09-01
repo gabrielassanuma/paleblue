@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
 
   create_table "creators", force: :cascade do |t|
     t.bigint "token_id", null: false
+    t.string "title"
     t.text "q1"
     t.text "q2"
     t.text "q3"
@@ -87,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
   end
 
   create_table "tk_balances", force: :cascade do |t|
-    t.bigint "tk_amount"
+    t.bigint "tk_amount", default: 0
     t.bigint "user_id", null: false
     t.bigint "token_id", null: false
     t.datetime "created_at", null: false

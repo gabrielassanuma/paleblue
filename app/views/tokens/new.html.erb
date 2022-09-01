@@ -1,2 +1,16 @@
-<h1>Tokens#new</h1>
-<p>Find me in app/views/tokens/new.html.erb</p>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Add a new token</h3>
+        <%= simple_form_for @token do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :nickname %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit, class: "btn-primary" %>
+          <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

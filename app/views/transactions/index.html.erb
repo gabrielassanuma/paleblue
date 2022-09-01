@@ -1,0 +1,7 @@
+<h2>Transactions</h2><br>
+  <% @transactions.each do |transaction| %>
+    <h3>Transaction Amount: <%= transaction.tk_amount %></h3>
+    <p>Transacted Token: <%= transaction.token.nickname %></p>
+    <p>From: <%= transaction.from_user.nickname %></p>
+    <p>To: <%= transaction.to_user.nickname %></p>
+  <% end %>

@@ -1,4 +1,9 @@
+require 'securerandom'
 class CreatorsController < ApplicationController
+  def index
+    @creators = Creator.all
+  end
+
   def new
     @creator = Creator.new
   end
@@ -56,11 +61,26 @@ class CreatorsController < ApplicationController
     SecureRandom.hex
   end
 
+
   def creator_params
     params.require(:creator).permit(:q1, :q2, :q3, :non_profit, :about, :location, :facebook, :instagram, :linkedin, :website, :tag1, :tag2, :tag3, :token)
   end
 
   def nft_params
     params.require(:nft).permit(:name, photos: [])
+
+  private
+
+  def create_pale_blue_id
+    token = Token.new(
+      nickname: "PaleBlue ID",
+      user: User.first
+    )
+    (return token if token.save)
+    create_pale_blue_id
+  end
+
+  def new_tk_address
+    SecureRandom.hex
   end
 end
