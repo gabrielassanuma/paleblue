@@ -7,15 +7,13 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @creator = Creator.find(params[:creator_id])
-    @tokens = Token.all
   end
 
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.from_user = current_user
-    creator = Creator.find(params[:creator_id])
-    @transaction.to_user = creator.token.user
-    @transaction.token = Token.find_by(nickname: params[:token])
+    @creator = Creator.find(params[:creator_id])
+    @transaction.to_user = @creator.token.user
     if @transaction.save
       redirect_to transaction_path(@transaction)
     else
@@ -26,7 +24,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:tk_amount)
+    params.require(:transaction).permit(:tk_amount, :token_id)
   end
 
 end
