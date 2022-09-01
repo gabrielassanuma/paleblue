@@ -115,7 +115,7 @@ raffle_ticket.save!
 raffle_ticket_balance = TkBalance.new(
   tk_amount: raffle_ticket.max_mint,
   token: raffle_ticket,
-  user: User.fifth
+  user: User.third
 )
 raffle_ticket_balance.save!
 
