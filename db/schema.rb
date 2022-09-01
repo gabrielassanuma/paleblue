@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_153751) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_153751) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["token_id"], name: "index_creators_on_token_id"
+  end
+
+  create_table "nfts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_nfts_on_creator_id"
   end
 
   create_table "raffles", force: :cascade do |t|
@@ -126,6 +134,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_153751) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "creators", "tokens"
+  add_foreign_key "nfts", "creators"
   add_foreign_key "raffles", "creators"
   add_foreign_key "raffles", "tokens"
   add_foreign_key "tk_balances", "tokens"

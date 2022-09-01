@@ -1,0 +1,5 @@
+<%= simple_form_for @nft do |f| %>
+  <%= f.input :name, as: :text, required: true %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit %>
+<% end %>
