@@ -1,12 +1,26 @@
+<div class="mt-5" style="text-align:center">
 <h2><strong>Token Nickname: </strong><%= @token.nickname %></h2>
-<h2>Token Address: <%= @token.tk_address %></h2>
-<h2>Is there a mint limit? <%= @token.unlimited %></h2>
-<h2>How many can be minted? <%= @token.max_mint %></h2>
-<h2>How many have been minted? <%= @token.minted_so_far %></h2><br>
+<h4><strong>Token Address: </strong><%= @token.tk_address %></h4>
+<%  if @token.unlimited %>
+  <h4><strong>Maximum supply:</strong> unlimited</h4>
+<% else %>
+  <h4><strong>Maximum supply:</strong> <%= @token.max_mint %></h4>
+<% end %>
 
-<h2>Mint Authority Nickname: <%= @token.user.nickname %></h2>
-<h2>Mint Authority Address: <%= @token.user.wlt_address %></h2><br>
+<h4><strong>Token(s) minted so far: </strong><%= @token.minted_so_far %></h4>
 
-<h2>Balance for: <%= @tk_balance.user.nickname %></h2>
-<h2>Token Nickname: <%= @tk_balance.token.nickname %></h2>
-<h2>Balance: <%= @tk_balance.tk_amount %></h2>
+<%  if @token.max_mint == @token.minted_so_far %>
+  <p>-- Limit Reached --</p>
+  <p>-- No more of this token can be generated --</p>
+<% else %>
+  <p>Limit is not yet reached. Keep printing...</p>
+<% end %><br>
+
+
+<h3><strong>Mint Authority Nickname:</strong> <%= @token.user.nickname %></h3>
+<h3><strong>Mint Authority Address:</strong> <%= @token.user.wlt_address %></h3><br>
+
+<h3><strong>Balance for: </strong><%= @tk_balance.user.nickname %></h3>
+<h3><strong>Token Nickname: </strong><%= @tk_balance.token.nickname %></h3>
+<h3><strong>Balance: </strong><%= @tk_balance.tk_amount %></h3>
+</div>
