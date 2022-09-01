@@ -1,3 +1,7 @@
-<h1>Transactions#show</h1>
-<p>Find me in app/views/transactions/show.html.erb</p>
-<%= @token %>
+<div class="text-center fw-bold" style="color:white;position:absolute;top: 50%;
+    left: 50%;">
+<h1>Donation Details</h1>
+<p>From: <%= @token.from_user.nickname %></p>
+<p>To: <%= @token.to_user.nickname %></p>
+<p>Amount: <%= @token.tk_amount %></p>
+</div>
