@@ -171,8 +171,6 @@ appreciator_token_balance = TkBalance.new(
 )
 appreciator_token_balance.save!
 
-=begin
-
 transaction_new = Transaction.new(
   tk_amount: 30,
   token: Token.last,
@@ -180,7 +178,6 @@ transaction_new = Transaction.new(
   to_user: User.last
 )
 transaction_new.save!
-=end
 
 puts 'tokens and balances done'
 
