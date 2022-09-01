@@ -145,6 +145,20 @@ token = Token.last
 token.minted_so_far += 50
 token.save!
 
+creator_pale_blue_id_balance = TkBalance.new(
+  token: pale_blue_id,
+  user: User.fifth
+)
+creator_pale_blue_id_balance.save!
+
+transaction_new = Transaction.new(
+  tk_amount: 1,
+  token: Token.first,
+  from_user: User.first,
+  to_user: User.fifth
+)
+transaction_new.save!
+
 creator_token_balance = TkBalance.new(
   token: sol_token,
   user: User.fifth
@@ -194,6 +208,7 @@ application_responses = [
 ]
 
 creator = Creator.new(
+  title: 'JM Cousteau',
   q1: application_responses.first,
   q2: application_responses.second,
   q3: application_responses.third,

@@ -1,5 +1,9 @@
 require 'securerandom'
 class CreatorsController < ApplicationController
+  def index
+    @creators = Creator.all
+  end
+
   def new
   end
 
@@ -7,6 +11,7 @@ class CreatorsController < ApplicationController
   end
 
   def show
+    @creator = Creator.find(params[:id])
   end
 
   def edit

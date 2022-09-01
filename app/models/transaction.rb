@@ -23,7 +23,6 @@ class Transaction < ApplicationRecord
   def balances_update
     from_balance = from_user.tk_balances.find_by(token:)
     from_balance.update(tk_amount: from_balance.tk_amount - tk_amount)
-
     to_balance = to_user.tk_balances.find_by(token:)
     to_balance.update(tk_amount: to_balance.tk_amount + tk_amount)
   end
