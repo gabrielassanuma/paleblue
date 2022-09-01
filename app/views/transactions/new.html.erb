@@ -1,7 +1,16 @@
-<%= simple_form_for [@creator, @transaction] do |f| %>
-  <%= f.input :tk_amount %>
-  <%= f.association :token,
-                    collection: @user_tokens,
-                    label_method: :nickname %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3 form">
+      <div class="bg rounded p-3 shadow-light">
+        <h3>Add a new token</h3>
+        <%= simple_form_for [@creator, @transaction] do |f| %>
+          <%= f.input :tk_amount %>
+          <%= f.association :token,
+                            collection: @user_tokens,
+                            label_method: :nickname %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
