@@ -7,11 +7,9 @@
   background-position: center top;
 }
 
-.banner h1 {
-  margin: 0;
+.banner h1, .banner h2, .banner h3 {
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
   font-weight: bold;
 }
 
@@ -20,20 +18,4 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.btn-ghost {
-  color: #568FB3;
-  border: 1px solid #568FB3;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.btn-ghost:hover {
-  background-color:#568FB3;
-  color:black;
-  opacity: 1;
 }
