@@ -139,8 +139,11 @@ sol_token_balance = TkBalance.new(
 )
 sol_token_balance.save!
 
+sol_token_balance.tk_amount = 50
+sol_token_balance.save!
+
 token = Token.find(5)
-token.minted_so_far += 1
+token.minted_so_far += 50
 token.save!
 
 puts 'tokens and balances done'
