@@ -21,12 +21,20 @@ class CreatorsController < ApplicationController
     @creator = Creator.find(params[:id])
   end
 
-  def files_new
-    @files = Files.new
+  def nft_new
+    @creator = current_user
+    @nft = Nft.new
   end
 
-  def files_create
-    @files = Files.new(files_params)
+  def nft_create
+    @creator = current_user.creator
+    @nft = Nft.new(nft_params)
+    @nft.creator = @creator
+    if @nft.save
+      redirect_to creator_path(@creator)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -49,10 +57,10 @@ class CreatorsController < ApplicationController
   end
 
   def creator_params
-    params.require(:creator).permit(:q1, :q2, :q3, :non_profit, :about, :location, :facebook, :instagram, :linkedin, :website, :tag1, :tag2, :tag3, :token, :photos)
+    params.require(:creator).permit(:q1, :q2, :q3, :non_profit, :about, :location, :facebook, :instagram, :linkedin, :website, :tag1, :tag2, :tag3, :token)
   end
 
-  def files_params
-    params.require(:files).permit(photos: [])
+  def nft_params
+    params.require(:nft).permit(:name, photos: [])
   end
 end

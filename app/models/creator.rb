@@ -5,7 +5,7 @@ class Creator < ApplicationRecord
 
   belongs_to :token
 
-  has_many_attached :files
+  has_many :nfts
 
   validates :token, presence: true
 end
