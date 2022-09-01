@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :creators, only: ['new', 'create', 'show', 'edit', 'index'] do
     resources :transactions, only: ['new', 'create']
+  end
 
   resources :transactions, only: ['new', 'create', 'index', 'show']
   resources :tokens, only: ['new', 'create', 'show', 'index']
