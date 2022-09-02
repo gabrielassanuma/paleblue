@@ -1,0 +1,28 @@
+<div class="d-flex" style="color:white">
+<div><h2>Transactions</h2><br>
+<div><h4>From this User:</h4>
+  <% @user_from_transactions.each do |transaction| %>
+    <h3>Transaction Amount: <%= transaction.tk_amount %></h3>
+    <p>Transacted Token: <%= transaction.token.nickname %></p>
+    <p>From: <%= transaction.from_user.nickname %></p>
+    <p>To: <%= transaction.to_user.nickname %></p>
+  <% end %></div><br>
+
+  <div><h4>To this User:</h4><br>
+  <% @user_to_transactions.each do |transaction| %>
+    <h3>Transaction Amount: <%= transaction.tk_amount %></h3>
+    <p>Transacted Token: <%= transaction.token.nickname %></p>
+    <p>From: <%= transaction.from_user.nickname %></p>
+    <p>To: <%= transaction.to_user.nickname %></p>
+  <% end %></div>
+
+
+  <div>
+  <h2>Balances</h2><br>
+  <% @user_balances.each do |balance| %>
+    <p>Token: <%= balance.token.nickname %></p>
+    <p>Balance: <%= balance.tk_amount %></p>
+
+  <% end %></div>
+  </div>
+</div>
