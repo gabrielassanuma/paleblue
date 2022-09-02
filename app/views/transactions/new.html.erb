@@ -2,7 +2,12 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3 form">
       <div class="p-3">
-        <h3>Donate</h3>
+        <div class='d-flex justify-content-between align-items-baseline'>
+          <h3>Donate</h3>
+          <%= link_to creator_path(@creator) do %>
+            <i class="fa-solid fa-xmark text-light"></i>
+          <% end %>
+        </div>
         <%= simple_form_for [@creator, @transaction] do |f| %>
           <%= f.input :tk_amount %>
           <%= f.association :token,
