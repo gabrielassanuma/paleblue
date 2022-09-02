@@ -1,33 +1,35 @@
-<div class="row justify-content-center" style="color:white">
-  <div  class="col-12 col-sm-4">
-    <div class="mt-5" style="text-align:center">
-    <h2><%= @creator.title %></h2>
-    <p>PaleBlue ID: <%= link_to @creator.token.tk_address, token_path(@creator.token)%></p>
-    <p>Creator Since: <%= @creator.created_at %></p>
+<div class="container">
+  <div class="row justify-content-center" style="color:white">
+    <div  class="col-12 col-sm-4">
+      <div class="mt-5" style="text-align:center">
+        <h2><%= @creator.title %></h2>
+        <p>PaleBlue ID: <%= link_to @creator.token.tk_address, token_path(@creator.token)%></p>
+        <p>Creator Since: <%= @creator.created_at %></p>
 
-    <button><%= link_to "Donate", new_creator_transaction_path(@creator)%></button>
+        <button><%= link_to "Donate", new_creator_transaction_path(@creator)%></button>
 
-    <h3>About me:</h3>
-    <p><%= @creator.about %></p><br>
-    <p>Location: <%= @creator.location %></p>
+        <h3>About me:</h3>
+        <p><%= @creator.about %></p><br>
+        <p>Location: <%= @creator.location %></p>
 
-    <h3>Problem(s) I'm focused on solving:</h3>
-    <p>1. <%= @creator.q1 %></p><br>
-    <p>2. <%= @creator.q2 %></p><br>
-    <p>3. <%= @creator.q3 %></p><br>
+        <h3>Problem(s) I'm focused on solving:</h3>
+        <p>1. <%= @creator.q1 %></p><br>
+        <p>2. <%= @creator.q2 %></p><br>
+        <p>3. <%= @creator.q3 %></p><br>
 
-    <h3>Tags</h3>
-    <p><%= @creator.tag1 %></p>
-    <p><%= @creator.tag2 %></p>
-    <p><%= @creator.tag3 %></p>
+        <h3>Tags</h3>
+        <p><%= @creator.tag1 %></p>
+        <p><%= @creator.tag2 %></p>
+        <p><%= @creator.tag3 %></p>
 
-    <h3>Links</h3>
-    <p><%= @creator.facebook %></p>
-    <p><%= @creator.twitter %></p>
-    <p><%= @creator.instagram %></p>
-    <p><%= @creator.linkedin %></p>
-    <p><%= @creator.website %></p>
-    <p><%= @creator.discord %></p>
+        <h3>Links</h3>
+        <p><%= @creator.facebook %></p>
+        <p><%= @creator.twitter %></p>
+        <p><%= @creator.instagram %></p>
+        <p><%= @creator.linkedin %></p>
+        <p><%= @creator.website %></p>
+        <p><%= @creator.discord %></p>
+      </div>
     </div>
   </div>
 </div>
