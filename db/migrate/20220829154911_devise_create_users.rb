@@ -33,6 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       t.timestamps null: false
     end
+    add_index :users, :wlt_address, unique: true
     add_index :users, :reset_password_token, unique: true
   end
 end
