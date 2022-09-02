@@ -2,7 +2,11 @@
 <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon" style="background-color: black">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <p style="font-size: 34px; color: black;">PaleBlue</p>
+      <% if controller_name=="pages" && action_name == "home" %>
+        <p style="font-size: 34px; color: black;">PaleBlue</p>
+      <% else %>
+        <p style="font-size: 34px; color: white;">PaleBlue</p>
+      <% end %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +17,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <%= link_to "Generate New", "#",  class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= link_to "Generate New", "#",  class: "avatar dropdown-toggle pe-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Creator", new_creator_path, class: "dropdown-item" %>
               <%= link_to "Raffle", new_raffle_path, class: "dropdown-item" %>
@@ -21,7 +25,7 @@
             </div>
           </li>
             <li class="nav-item dropdown">
-            <%= link_to "Index", "#",  class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= link_to "Index", "#",  class: "avatar dropdown-toggle pe-5", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Creators", creators_path, class: "dropdown-item" %>
               <%= link_to "Transactions", transactions_path, class: "dropdown-item" %>
@@ -40,6 +44,7 @@
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
+        <% elsif controller_name=="sessions" && action_name == "new" %>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>

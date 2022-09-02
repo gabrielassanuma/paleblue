@@ -2,7 +2,6 @@
   justify-content: space-between;
   background: white;
   color: white;
-  ;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,4 +17,11 @@
 #navbarSupportedContent {
   font-size: 30px;
   font-style: bold;
+}
+
+#navbarDropdown {
+  color: rgba(255, 255, 255, 1);
+  &:hover {
+    color: #568FB3;
+  }
 }
