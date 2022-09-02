@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :creators, only: ['show', 'new', 'create', 'edit']
+  resources :creators, only: ['show', 'new', 'create', 'edit', 'update']
   get 'nft/new', to: 'creators#nft_new'
   post 'nft', to: 'creators#nft_create', as: :nfts
 

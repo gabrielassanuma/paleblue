@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.all
-    @balances = TkBalance.where("tk_amount > ?", 0)
   end
 
   def show
@@ -23,7 +22,7 @@ class TransactionsController < ApplicationController
     @creator = Creator.find(params[:creator_id])
     @transaction.to_user = TkBalance.where(token_id: @creator.token).last.user
     if @transaction.save
-      redirect_to transaction_path(@transaction),  notice: "Transaction was successfully created."
+      redirect_to transaction_path(@transaction), notice: "Transaction was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

@@ -30,8 +30,8 @@ site_users = [
   'PaleBlue Donation Account',
   'PaleBlue Raffle Ticket Generator',
   'Donation Token Generator',
-  'Creator',
-  'Appreciator'
+  'JM Cousteau',
+  'Diogo'
 ]
 
 6.times do |index|
@@ -51,7 +51,7 @@ puts 'Generate tokens and balances...'
 
 # Pale Blue ID
 pale_blue_id = Token.new(
-  nickname: 'PaleBlue ID',
+  nickname: 'PaleBlue ID #1',
   user: User.first
 )
 pale_blue_id.save!
