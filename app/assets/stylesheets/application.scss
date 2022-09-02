@@ -10,6 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "transactions/index";
+@import "tokens/index";
 
 @import url('https://cdn.mos.cms.futurecdn.net/fqX3qDntRKQwa5i2q3dH85-1920-80.jpg.webp');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
@@ -19,7 +21,10 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+  background-color: rgba(0, 0, 0, 1);
+  height: 600px;
   }
+
 
 body {
   margin: 0;
@@ -29,4 +34,5 @@ body {
   font-size: 62.5%;
   font-size: 18px;
   background-color: #fefcf5;
+
 }
