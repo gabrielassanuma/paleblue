@@ -2,7 +2,7 @@
   <div  class="col-12 col-sm-4">
     <div class="mt-5" style="text-align:center">
     <h2><%= @creator.title %></h2>
-    <p>PaleBlue ID: <%= link_to @creator.token.tk_address, token_path(@creator.token.user)%></p>
+    <p>PaleBlue ID: <%= link_to @creator.token.tk_address, token_path(@creator.token)%></p>
     <p>Creator Since: <%= @creator.created_at %></p>
 
     <button><%= link_to "Donate", new_creator_transaction_path(@creator)%></button>

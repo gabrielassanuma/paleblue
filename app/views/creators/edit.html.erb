@@ -1,20 +1,25 @@
-<div class="row justify-content-center">
-  <div  class="col-12 col-sm-4">
-    <%= simple_form_for @creator do |f| %>
-      <%= f.input :q1, as: :text, required: false %>
-      <%= f.input :q2, as: :text, required: false %>
-      <%= f.input :q3, as: :text, required: false %>
-      <%= f.input :non_profit, required: false, as: :text %>
-      <%= f.input :location, required: false, as: :text %>
-      <%= f.input :facebook, required: false, as: :text %>
-      <%= f.input :instagram, required: false, as: :text %>
-      <%= f.input :linkedin, required: false, as: :text %>
-      <%= f.input :website, required: false, as: :text %>
-      <%= f.input :discord, required: false, as: :text %>
-      <%= f.input :tag1, required: false, as: :text %>
-      <%= f.input :tag2, required: false, as: :text %>
-      <%= f.input :tag3, required: false, as: :text %>
-      <%= f.submit %>
-    <% end %>
+<div class="container py-5">
+  <div class="row">
+    <div  class="col-12 col-md-6 offset-lg-3 form">
+      <div class="p-3">
+        <%= simple_form_for @creator do |f| %>
+          <%= f.input :title, required: false %>
+          <%= f.input :about, required: false, as: :text %>
+          <%= f.input :location, required: false %>
+          <%= f.input :website, required: false %>
+          <%= f.input :facebook, required: false %>
+          <%= f.input :twitter, required: false %>
+          <%= f.input :instagram, required: false%>
+          <%= f.input :linkedin, required: false %>
+          <%= f.input :discord, required: false %>
+          <%= f.input :tag1, required: false %>
+          <%= f.input :tag2, required: false %>
+          <%= f.input :tag3, required: false %>
+          <div class='d-flex' style='justify-content: space-between;'>
+            <%= f.button :submit, 'Create Profile', class: 'btn btn-ghost'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

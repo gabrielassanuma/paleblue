@@ -12,15 +12,20 @@ class CreatorsController < ApplicationController
     @creator = Creator.new(creator_params)
     @creator.token = create_pale_blue_id
     if @creator.save
-      redirect_to creator_path(@creator)
+      redirect_to edit_creator_path(@creator)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def update
+    @creator = Creator.find(params[:id])
+    @creator.update(profile_params) # Will raise ActiveModel::ForbiddenAttributesError
+    redirect_to creator_path(@creator)
+  end
+
   def show
     @creator = Creator.find(params[:id])
-    @tk_balances = TkBalance.where(user: current_user)
   end
 
   def edit
@@ -46,24 +51,67 @@ class CreatorsController < ApplicationController
   private
 
   def create_pale_blue_id
+    user = User.first
+    pale_blue_id_number = Transaction.where(from_user: user).count + 1
     token = Token.new(
-      tk_address: new_tk_address,
-      unlimited: false,
-      max_mint: 1,
-      minted_so_far: 0,
-      nickname: "PaleBlue ID #{User.count}",
-      user: User.first
+      nickname: "PaleBlue ID ##{pale_blue_id_number}",
+      user:
     )
-    (return token if token.save)
-    create_pale_blue_id
+    if token.save
+      create_pb_balances(token)
+      send_token_to_applicant(token)
+    else
+      create_pale_blue_id
+    end
+    return token
   end
 
-  def new_tk_address
-    SecureRandom.hex
+  def create_pb_balances(token)
+    pb_balance = TkBalance.new(
+      tk_amount: token.max_mint,
+      token:,
+      user: User.first
+    )
+    pb_balance.save
+
+    creator_balance = TkBalance.new(
+      token:,
+      user: current_user
+    )
+    creator_balance.save
+    token.minted_so_far += 1
+    token.save
+  end
+
+  def send_token_to_applicant(token)
+    transaction = Transaction.new(
+      tk_amount: 1,
+      token:,
+      from_user: User.first,
+      to_user: current_user
+    )
+    transaction.save
   end
 
   def creator_params
-    params.require(:creator).permit(:q1, :q2, :q3, :non_profit, :about, :location, :facebook, :instagram, :linkedin, :website, :tag1, :tag2, :tag3, :token)
+    params.require(:creator).permit(:q1, :q2, :q3)
+  end
+
+  def profile_params
+    params.require(:creator).permit(
+      :title,
+      :about,
+      :location,
+      :facebook,
+      :twitter,
+      :instagram,
+      :linkedin,
+      :website,
+      :discord,
+      :tag1,
+      :tag2,
+      :tag3
+    )
   end
 
   def nft_params
