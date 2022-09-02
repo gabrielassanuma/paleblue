@@ -5,7 +5,7 @@
       <% @creators.each do |creator| %>
         <div class="box" style='max-width: 280px; border-radius: 15px; padding: 15px; box-shadow: 4px 5px 11px; margin:auto; background-color: rgba(255, 255, 255, 0.03)'>
           <div class="content">
-            <h3 ><%= link_to creator.title, creator_path(creator)%></h3>
+            <h3><%= link_to creator.title, creator_path(creator), style:'color: #568FB3;'%></h3>
             <p>Non-Profit Status: <%= creator.non_profit %></p>
             <p>Location: <%= creator.location %></p>
             <p>Tag: <%= creator.tag1 %></p>
