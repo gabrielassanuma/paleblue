@@ -45,8 +45,6 @@ site_users = [
 end
 puts "Users done"
 
-users = User.all
-
 puts 'Generate tokens and balances...'
 
 # Pale Blue ID
