@@ -23,7 +23,14 @@ class TokensController < ApplicationController
 
   def show
     @token = Token.find(params[:id])
-    @tk_balance = TkBalance.find_by(token: @token)
+    @owners = []
+    @balances = []
+    TkBalance.where(token: @token).each do |balance|
+      if balance.tk_amount.positive?
+        @owners << balance.user
+        @balances << balance.tk_amount
+      end
+    end
   end
 
   private

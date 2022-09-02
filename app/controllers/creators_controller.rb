@@ -20,6 +20,7 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find(params[:id])
+    @tk_balances = TkBalance.where(user: current_user)
   end
 
   def edit
