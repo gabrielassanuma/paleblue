@@ -1,20 +1,12 @@
-<div class="d-flex" style="color:white">
-<div><h2>Transactions</h2><br>
+<div style="color:white">
+<div><h2><strong>Transactions</strong></h2><br>
   <% @transactions.each do |transaction| %>
-    <h3>Transaction Amount: <%= transaction.tk_amount %></h3>
-    <p>Transacted Token: <%= transaction.token.nickname %></p>
-    <p>From: <%= transaction.from_user.nickname %></p>
-    <p>To: <%= transaction.to_user.nickname %></p>
-  <% end %></div>
-
-
-  <div>
-  <h2>Balances</h2><br>
-  <% @balances.each do |balance| %>
-    <h4>Owner: <%= balance.user.nickname %></h4>
-    <p>Token: <%= balance.token.nickname %></p>
-    <p>Balance: <%= balance.tk_amount %></p>
-
-  <% end %></div>
-  </div>
+        <p>-- Transaction ID: <%= transaction.id %>
+        --  Amount: <%= transaction.tk_amount %>  --  Token: <%= transaction.token.nickname %></p>
+        <p>Sender: <%= transaction.from_user.nickname %> --> To:
+        <%= transaction.to_user.nickname %></p>
+        <p>Addresses: <%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%>  --> <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
+      <hr>
+      <% end %>
+  </div><br>
 </div>

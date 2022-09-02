@@ -12,30 +12,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+        <li><%= link_to "Apply", new_creator_path %></li>
+        <li><%= link_to "Creators", creators_path %></li>
           <li class="nav-item dropdown">
-            <%= link_to "Generate New", "#",  class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Creator", new_creator_path, class: "dropdown-item" %>
-              <%= link_to "Raffle", new_raffle_path, class: "dropdown-item" %>
-              <%= link_to "Token", new_token_path, class: "dropdown-item" %>
-            </div>
-          </li>
-            <li class="nav-item dropdown">
-            <%= link_to "Index", "#",  class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Creators", creators_path, class: "dropdown-item" %>
-              <%= link_to "Transactions", transactions_path, class: "dropdown-item" %>
-              <%= link_to "Raffles", raffles_path, class: "dropdown-item" %>
-              <%= link_to "Tokens", tokens_path, class: "dropdown-item" %>
-            </div>
-            </li>
-          <li class="nav-item dropdown">
-            <% user = current_user.nickname.to_s %>
+            <% user = current_user.nickname %>
             <%= link_to user, "#",  class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Profile", "#", class: "dropdown-item" %>
-              <%= link_to "My Balances", "#", class: "dropdown-item" %>
-              <%= link_to "My Donations", "#", class: "dropdown-item" %>
+              <%= link_to "My Wallet", account_path(current_user), class: "dropdown-item" %>
               <%= link_to "Available Downloads", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

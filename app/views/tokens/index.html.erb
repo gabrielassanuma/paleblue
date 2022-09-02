@@ -1,4 +1,5 @@
-<h2>Tokens#index</h2><br>
+<div style="color:white">
+<h2>Tokens Created</h2><br>
   <% @tokens.each do |token| %>
     <h3>Token Nickname: <%= token.nickname %></h3>
     <p>Token Address: <%= token.tk_address %></p>
@@ -8,3 +9,4 @@
     <p>Mint Authority Nickname: <%= token.user.nickname %></p>
     <p>Mint Authority Address: <%= token.user.wlt_address %></p><br>
   <% end %>
+</div>

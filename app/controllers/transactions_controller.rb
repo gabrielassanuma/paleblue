@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.all
-    @balances = TkBalance.where("tk_amount > ?", 0)
   end
 
   def show
