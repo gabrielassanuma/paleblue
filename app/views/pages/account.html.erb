@@ -1,26 +1,29 @@
 <div style="color:white">
- <h1> Account for: <%= @user.nickname %> @ Wallet: <%= @user.wlt_address %></h1>
+ <h1> <strong>Account for:</strong></h1>
+ <h2><%= @user.nickname %> @ Wallet Address: <%= @user.wlt_address %></h2><br>
  <div>
-    <h2>Balances</h2><br>
+    <h2><strong>Balances</strong></h2><br>
     <% @user_balances.each do |balance| %>
-      <p>Token: <%= balance.token.nickname %> ------ Balance: <%= balance.tk_amount %>
-       ------ Token Address: <%= link_to balance.token.tk_address, token_path(balance.token)%></p>
+      <p>Token: <%= balance.token.nickname %> -- Address: <%= link_to balance.token.tk_address, token_path(balance.token)%></p>
+      <p>Balance: <%= balance.tk_amount %></p>
+      <hr>
     <% end %>
   </div><br>
-  <h2>Transactions</h2><br>
+  <h2><strong>Transactions</strong></h2><br>
     <div>
       <% @user_from_transactions.each do |transaction| %>
-        <h3>Transaction id: <%= transaction.id %></h3>
-        <p>Transaction Amount: <%= transaction.tk_amount %> <%= transaction.token.nickname %></p>
-        <p>From: <%= transaction.from_user.nickname %> @ <%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%></p>
-        <p>To: <%= transaction.to_user.nickname %> @ <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
+        <p>-- Transaction ID: <%= transaction.id %>
+        --  Amount: <%= transaction.tk_amount %> <%= transaction.token.nickname %> -- </p>
+        <p>Sender: <%= transaction.from_user.nickname %> @ <%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%>
+        --> To: <%= transaction.to_user.nickname %> @ <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
+      <hr>
       <% end %>
     </div>
       <% @user_to_transactions.each do |transaction| %>
-        <p>----- Transaction ID: <%= transaction.id %>
-        ----- Transaction Amount: <%= transaction.tk_amount %> <%= transaction.token.nickname %> -----
-        <p>From: <%= transaction.from_user.nickname %> @ <%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%></p>
-        <p>To: <%= transaction.to_user.nickname %> @ <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
+        <p>-- Transaction ID: <%= transaction.id %>
+        --  Amount: <%= transaction.tk_amount %>  --  Token: <%= transaction.token.nickname %></p>
+        <p>Sender: <%= transaction.from_user.nickname %> @ <%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%> --> To: <%= transaction.to_user.nickname %> @ <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
+      <hr>
       <% end %>
     </div>
 </div>
