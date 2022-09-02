@@ -1,10 +1,19 @@
-body {
-  margin: 0;
-}
 
-#container-imagem {
-  position: relative;
+.banner2 {
   height: 100vh;
   width: 100vw;
   background-color: black;
+}
+
+.banner2 h1, .banner2 h2, .banner2 h4 {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
+}
+
+.banner2 p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
