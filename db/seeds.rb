@@ -35,13 +35,12 @@ site_users = [
 ]
 
 6.times do |index|
-  user = User.new(
+  user = User.create!(
     wlt_address: SecureRandom.hex(10),
     nickname: site_users[index],
     password:,
     password_confirmation: password
   )
-  user.save!
 end
 puts "Users done"
 
