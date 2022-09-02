@@ -13,6 +13,9 @@
 @import "transactions/index";
 @import "tokens/index";
 
+@import url('https://cdn.mos.cms.futurecdn.net/fqX3qDntRKQwa5i2q3dH85-1920-80.jpg.webp');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
 
 .page-container {
   display: grid;
@@ -22,6 +25,14 @@
   height: 600px;
   }
 
-body{
-  font-size: 20px;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 62.5%;
+  font-size: 18px;
+  background-color: #fefcf5;
+
 }
