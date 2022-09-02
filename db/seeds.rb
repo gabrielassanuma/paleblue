@@ -35,11 +35,10 @@ site_users = [
 ]
 
 6.times do |index|
-  user = User.create!(
+  User.create!(
     wlt_address: SecureRandom.hex(10),
     nickname: site_users[index],
-    password:,
-    password_confirmation: password
+    password: password
   )
 end
 puts "Users done"
