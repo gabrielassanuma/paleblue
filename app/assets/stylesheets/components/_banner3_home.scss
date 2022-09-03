@@ -3,6 +3,8 @@
   height: 30vh;
   width: 100vw;
   background-color: black;
+  display: inline-flex;
+  margin-top: -180px;
 }
 
 .banner3 h1, .banner3 h2, .banner3 h4 {
@@ -16,4 +18,16 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.text-banner3 {
+  position: relative;
+  bottom: 100px;
+  left: 120px;
+}
+
+.button-banner3 {
+  position: relative;
+  top: -60px;
+  left: -120px
 }

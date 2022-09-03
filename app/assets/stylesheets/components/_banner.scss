@@ -1,10 +1,11 @@
 .banner {
-  background-size: cover;
+  background-image: url("banner.jpeg");
+  background-color: black;
+  height: 800px;
   background-position: center;
-  padding: 300px 0;
-  background: url( asset-path('banner.jpeg') ) no-repeat;
-  background-attachment: fixed;
-  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 80px;
 }
 
 .banner h1, .banner h2, .banner h3 {
@@ -13,23 +14,25 @@
   font-weight: bold;
 }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+.banner-container {
+  display: flex
+}
+
+.text-banner {
+  position: relative;
+  top: 250px;
+  right: 0px;
+
 }
 
 $numberOfElements: 4;
 $fontSize: 30px;
 
-
-
 .center-banner {
-  position: absolute;
-  top: 58.5%;
-  left: 0;
-	right: 0;
+  position: relative;
+  right: 123px;
+  top: 12px;
 	margin-top: ($fontSize * 1.5) / -2;
 }
 
