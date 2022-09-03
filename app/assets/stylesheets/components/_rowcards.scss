@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  min-height: 100vh;
+  min-height: 95vh;
   background: black
 
 }
@@ -52,10 +52,10 @@
 
 .rowcards .container .card .box {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
   background: #2a2b2f;
   border-radius: 15px;
   display: flex;
@@ -66,7 +66,7 @@
 }
 
 .rowcards .container .card .box:hover {
-  transform: translateY(-50px);
+  transform: translateY(-8px);
 }
 
 .rowcards .container .card .box:before {
