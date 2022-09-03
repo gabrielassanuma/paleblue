@@ -1,16 +1,14 @@
-<div class='content-creator'>
+<div class='content-raffle'>
   <div class="m-5" style="color:white">
-    <h2 class="d-flex justify-content-center">Creators Index</h2><br>
+    <h2 class="d-flex justify-content-center">Raffles Index</h2><br>
     <div class="cards">
-      <% @creators.each do |creator| %>
+      <% @raffles.each do |raffle| %>
         <div class="box" style='max-width: 100%; border-radius: 15px; padding: 15px; box-shadow: 4px 5px 11px; margin:5px; background-color: rgba(255, 255, 255, 0.3)'>
           <div class="card-content">
-            <h3><%= link_to creator.title, creator_path(creator), style:'color: #568FB3;'%></h3>
-            <p>Non-Profit Status: <%= creator.non_profit %></p>
-            <p>Location: <%= creator.location %></p>
-            <p>Tag: <%= creator.tag1 %></p>
-            <p>Tag: <%= creator.tag2 %></p>
-            <p>Tag: <%= creator.tag3 %></p>
+            <h3><%= link_to raffle.name, raffle_path(raffle), style:'color: #568FB3;'%></h3>
+            <p>Tag: <%= raffle.tag1 %></p>
+            <p>Tag: <%= raffle.tag2 %></p>
+            <p>Tag: <%= raffle.tag3 %></p>
           </div>
         </div>
       <% end %>

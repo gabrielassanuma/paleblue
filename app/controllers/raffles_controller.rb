@@ -36,7 +36,23 @@ class RafflesController < ApplicationController
 
   def build_token(attributes)
     raffle_item = Token.new(nickname: attributes[:nickname], photo: attributes[:photo], user: current_user)
-    raffle_item.save
-    @raffle.token = raffle_item
+    if raffle_item.save
+      create_item_balances(raffle_item)
+      @raffle.token = raffle_item
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def create_item_balances(item)
+    creator_balance = TkBalance.new(
+      tk_amount: item.max_mint,
+      token: item,
+      user: current_user
+    )
+    creator_balance.save
+
+    item.minted_so_far += 1
+    item.save
   end
 end

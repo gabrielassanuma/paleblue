@@ -1,2 +1,15 @@
-<h1>Raffles#show</h1>
-<p>Find me in app/views/raffles/show.html.erb</p>
+<div style="color:white;margin:150px">
+<p>Raffle: <%= @raffle.name %></p>
+<p>About: <%= @raffle.about %></p><br>
+<p>Raffle created by: <%= @raffle.creator.title %></p>
+<p><%= @raffle.creator.token.nickname %>: <%= link_to @raffle.creator.token.tk_address, token_path(@raffle.creator.token)%></p>
+<p><%= @raffle.tag1 %></p>
+<p><%= @raffle.tag2 %></p>
+<p><%= @raffle.tag3 %></p>
+<% if @raffle.token.photo.key  %>
+  <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path @raffle.token.photo.key %>>
+<% end  %>
+  <br>
+<p>Raffle item: <%= @raffle.token.nickname %></p>
+<p>Item address: <%= link_to @raffle.token.tk_address, token_path(@raffle.token)%></p>
+</div>

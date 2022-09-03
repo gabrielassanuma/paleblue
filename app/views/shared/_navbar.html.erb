@@ -33,6 +33,9 @@
               <%= link_to "New Raffle", new_creator_raffle_path(creator),  class: "avatar pe-5", id: "navItemLayout" %>
             </li>
           <% end %>
+          <li class="nav-item">
+          <%= link_to "Raffles", raffles_path,  class: "avatar pe-5", id: "navItemLayout" %>
+          </li>
           <li class="nav-item dropdown">
             <% user = current_user.nickname.to_s %>
             <%= link_to user, "#",  class: "avatar dropdown-toggle", id: "navItemLayout", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
