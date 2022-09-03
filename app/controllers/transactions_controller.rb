@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
     @creator = Creator.find(params[:creator_id])
     @user_tokens = []
     TkBalance.where(user: current_user).each do |transaction|
-      @user_tokens << transaction.token
+      @user_tokens << transaction.token if transaction.token.nickname == 'SOL'
     end
   end
 

@@ -52,7 +52,7 @@ class CreatorsController < ApplicationController
 
   def create_pale_blue_id
     user = User.first
-    pale_blue_id_number = Transaction.where(from_user: user).count + 1
+    pale_blue_id_number = Transaction.where(from_user: user).size + 1
     token = Token.new(
       nickname: "PaleBlue ID ##{pale_blue_id_number}",
       user:

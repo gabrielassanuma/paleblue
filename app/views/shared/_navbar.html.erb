@@ -18,9 +18,21 @@
           <li class="nav-item">
             <%= link_to "Apply", new_creator_path,  class: "avatar pe-5", id: "navItemLayout" %>
           </li>
+          <li class="nav-item">
+          <%= link_to "Creators", creators_path,  class: "avatar pe-5", id: "navItemLayout" %>
+          </li>
+          <% pale_blue = User.first %>
+          <% user_balances = TkBalance.where(user: current_user).where('tk_amount = ?', 1) %>
+          <% creator_test = user_balances.select do |balance|  %>
+          <%   balance.token.user == pale_blue %>
+          <% end %>
+          <% if creator_test.length > 0  %>
             <li class="nav-item">
-            <%= link_to "Creators", creators_path,  class: "avatar pe-5", id: "navItemLayout" %>
+              <% creator_token = creator_test.first.token %>
+              <% creator = Creator.find_by(token: creator_token) %>
+              <%= link_to "New Raffle", new_creator_raffle_path(creator),  class: "avatar pe-5", id: "navItemLayout" %>
             </li>
+          <% end %>
           <li class="nav-item dropdown">
             <% user = current_user.nickname.to_s %>
             <%= link_to user, "#",  class: "avatar dropdown-toggle", id: "navItemLayout", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

@@ -1,2 +1,14 @@
-<h1>Create a new Raffle!</h1>
-<p>Find me in app/views/raffles/new.html.erb</p>
+<div style="color:white">
+  <%= simple_form_for [@creator, @raffle] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name %>
+    <%= f.input :about, as: :text %>
+    <%= f.simple_fields_for :token do |f| %>
+            <h3>Add a Raffle Item</h3>
+            <%= f.error_notification %>
+            <%= f.input :nickname %>
+            <%= f.input :photo, as: :file %>
+          <% end %>
+    <%= f.button :submit, class: "btn btn-ghost" %>
+  <% end %>
+</div>
