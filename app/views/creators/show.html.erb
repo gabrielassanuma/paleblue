@@ -2,6 +2,9 @@
   <div class="row justify-content-center" style="color:white">
     <div  class="col-12 col-sm-4">
       <div class="mt-5" style="text-align:center">
+        <% if @creator.photo.key  %>
+          <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path @creator.photo.key %>>
+        <% end  %>
         <h2><%= @creator.title %></h2>
         <p>PaleBlue ID: <%= link_to @creator.token.tk_address, token_path(@creator.token)%></p>
         <p>Creator Since: <%= @creator.created_at %></p>
