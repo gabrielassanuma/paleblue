@@ -99,6 +99,7 @@ class CreatorsController < ApplicationController
 
   def profile_params
     params.require(:creator).permit(
+      :photo,
       :title,
       :about,
       :location,
