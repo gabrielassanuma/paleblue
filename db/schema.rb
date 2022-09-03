@@ -121,14 +121,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
 
   create_table "users", force: :cascade do |t|
     t.string "wlt_address"
-    t.string "encrypted_attributes", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "nickname"
-    t.string "reset_attributes_token"
-    t.datetime "reset_attributes_sent_at"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reset_attributes_token"], name: "index_users_on_reset_attributes_token", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["wlt_address"], name: "index_users_on_wlt_address", unique: true
   end
 
