@@ -1,7 +1,135 @@
 .banner-show{
-  height: 30vh;
+  height: 80vh;
   width: 100vw;
   background-color: black;
-  display: inline-flex;
-  margin-top: -180px;
+}
+
+p.t{
+  padding-top:20px;
+  font-size:14px !important;
+  line-height:1.5 !important;
+}
+.floft p:hover{
+
+  line-height:1 !important;
+}
+.goodat-box h3:hover{
+  padding-bottom:0px !important;
+  transition:1s ease-in;
+}
+body{
+  background-color:black;
+}
+body *, body *:before, body *:after {
+    box-sizing: border-box;
+}
+div[class*="colset"] > .floft:first-child, div[class*="colset"] > .clearfix > .floft:first-child {
+    margin-left: 0;
+}
+div[class*="colset"].center .floft {
+    text-align: center;
+}
+div[class*="colset"] > .floft, div[class*="colset"] > .clearfix > .floft {
+    margin-left: 4%;
+    text-align: left;
+    background: black;
+}
+.goodat-box.floft {
+    position: relative;
+    padding: 0 20px;
+    height: 360px;
+    overflow: hidden;
+    color: #bbb;
+    text-decoration: none;
+}
+.colset3 > .floft, .colset3 > .clearfix > .floft {
+    width: 30.66%;
+}
+.floft {
+    float: left;
+}
+
+.goodat-box:before {
+    position: absolute;
+    content: "";
+    width: 40%;
+    height: 360px;
+    left: 50%;
+    margin-left: -20%;
+    top: 50%;
+    margin-top: -180px;
+    border: 1px solid #aaa;
+    border-width: 1px 0;
+    border-color: rgba(255,255,255,0.5);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: opacity 0.4s ease-out, width 0.4s ease-out, margin 0.4s ease-out;
+}
+.goodat-box:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 40%;
+    left: 50%;
+    margin-left: -50%;
+    top: 50%;
+    margin-top: -20%;
+    border: 1px solid #aaa;
+    border-width: 0 1px;
+    border-color: rgba(255,255,255,0.5);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: opacity 0.4s ease-out, height 0.4s ease-out, margin 0.4s ease-out;
+}
+.goodat-box h3 {
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+    height: 80px;
+    width: 500px;
+    max-width: 100%;
+    color: #fff;
+    font-size: 16px;
+
+    text-transform: uppercase;
+    transition: padding 0.3s ease-out;
+}
+
+
+.content-body div[class*=colset].center p {
+    text-align: center;
+}
+.goodat-box p {
+    height: 300px;
+    overflow: hidden;
+    line-height: 1.8;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    transition: margin 0.3s ease-out;
+}
+.lead, .content-body p {
+    line-height: 1.6;
+}
+.goodat-box:hover {
+    color: #fff;
+}
+.goodat-box:hover:after {
+    height: 360px;
+    margin-top: -180px;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+.goodat-box.floft {
+    position: relative;
+    padding: 0 20px;
+    height: 300px;
+    overflow: hidden;
+    color: #bbb;
+    text-decoration: none;
+}
+.goodat-box:active {
+    background-color: #666;
+    background-color: rgba(255,255,255,0.1);
 }
