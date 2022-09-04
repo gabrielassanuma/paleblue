@@ -37,7 +37,7 @@ div[class*="colset"] > .floft, div[class*="colset"] > .clearfix > .floft {
 .goodat-box.floft {
     position: relative;
     padding: 0 20px;
-    height: 360px;
+    height: 320px;
     overflow: hidden;
     color: #bbb;
     text-decoration: none;
@@ -53,7 +53,7 @@ div[class*="colset"] > .floft, div[class*="colset"] > .clearfix > .floft {
     position: absolute;
     content: "";
     width: 40%;
-    height: 360px;
+    height: 320px;
     left: 50%;
     margin-left: -20%;
     top: 50%;
@@ -101,7 +101,7 @@ div[class*="colset"] > .floft, div[class*="colset"] > .clearfix > .floft {
     text-align: center;
 }
 .goodat-box p {
-    height: 300px;
+    height: 320px;
     overflow: hidden;
     line-height: 1.8;
     font-size: 14px;
@@ -116,7 +116,7 @@ div[class*="colset"] > .floft, div[class*="colset"] > .clearfix > .floft {
     color: #fff;
 }
 .goodat-box:hover:after {
-    height: 360px;
+    height: 320px;
     margin-top: -180px;
     opacity: 0.7;
     filter: alpha(opacity=70);
@@ -124,7 +124,7 @@ div[class*="colset"] > .floft, div[class*="colset"] > .clearfix > .floft {
 .goodat-box.floft {
     position: relative;
     padding: 0 20px;
-    height: 300px;
+    height: 320px;
     overflow: hidden;
     color: #bbb;
     text-decoration: none;
