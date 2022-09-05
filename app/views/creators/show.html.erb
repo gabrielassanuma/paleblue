@@ -32,6 +32,26 @@
         <p><%= @creator.linkedin %></p>
         <p><%= @creator.website %></p>
         <p><%= @creator.discord %></p>
+      </div><hr>
+      <div>
+      <h2>Creator Files</h2>
+      <%  @nfts.each do |files| %>
+        <%= files.name  %>
+        <% if files.photos[0].key  %>
+          <% files.photos.each do |file|   %>
+            <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path file.key %>>
+            <% end %>
+        <% end  %>
+      <% end %>
+      </div>
+      <div>
+      <h2>Creator Raffles</h2>
+      <%  @raffles.each do |raffle| %>
+        <%= raffle.name  %>
+        <% if raffle.token.photo.key  %>
+          <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path raffle.token.photo.key %>>
+        <% end  %>
+      <% end %>
       </div>
     </div>
   </div>
