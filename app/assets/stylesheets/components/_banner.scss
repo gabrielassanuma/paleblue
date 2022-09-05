@@ -16,23 +16,34 @@
 
 
 .banner-container {
-  display: flex
-}
-
-.text-banner {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  top: 250px;
-  right: 0px;
-
+  left: 180px;
+  top: 140px;
 }
+
+.buttons-banner {
+  display: flex;
+  position: relative;
+  top: 20px;
+}
+
+.button-banner-1 {
+  position: relative;
+  right: 30px;
+}
+.banner1-title{
+  position: relative;
+  bottom: 15px;
+}
+
 
 $numberOfElements: 4;
 $fontSize: 30px;
 
 .center-banner {
-  position: relative;
-  right: 123px;
-  top: 12px;
+  color: white;
 	margin-top: ($fontSize * 1.5) / -2;
 }
 
@@ -45,18 +56,17 @@ $fontSize: 30px;
 	height: $fontSize * 1.5;
 
 	.pre-banner {
-		position: absolute;
-		top: 0;
-		right: 76.5%;
+    position: relative;
+    right: 630px;
 	}
 
 	.change_outer-banner {
-		position: absolute;
-		top: 0;
-		left: 24%;
 		text-align: left;
 		height: $fontSize * 1.5;
 		overflow: hidden;
+    position: relative;
+    bottom: 43px;
+    left: 187px;
 
 		.change_inner-banner {
 			position: relative;

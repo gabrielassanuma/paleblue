@@ -1,0 +1,196 @@
+.rocket-banner {
+    *,*:before,*:after {box-sizing: border-box;}
+  body {background: black;}
+
+  .roket-container {
+    width: 220px; height: 380px;
+    position: relative;
+    top: 50px;
+    left: 80px;
+    animation: vibration 0.2s infinite;
+  }
+  @keyframes vibration {
+    0% {transform: translate(0,0) rotate(45deg);}
+    50% {transform: translate(1px,-1px) rotate(45deg);}
+    100% {transform: translate(0,0) rotate(45deg);}
+  }
+
+  .capsule {
+    width: 111px; height: 154px;
+    overflow: hidden;
+    position: absolute; left: 46px; top: 5px;
+    z-index: 100;
+  }
+  .capsule .top {
+    position: absolute; left: 0;
+    width: 0; height: 0; padding:0;
+    border-bottom: 62px solid #f3f3f3;
+    border-left: 56px solid transparent;
+    border-right: 56px solid transparent;
+  }
+  .capsule .top:after {
+    content:'';
+    position: absolute; left: 25px; top: -14px;
+    width: 0; height: 0;
+    border-bottom: 84px solid black;
+    border-left: 0px solid transparent;
+    border-right: 156px solid transparent;
+    transform: skew(42deg);
+  }
+  .capsule .top .shadow {
+    position: absolute;
+    width: 0; height: 0;
+    border-bottom: 90px solid #e0e0e0;
+    border-left: 20px solid transparent;
+    border-right: 80px solid transparent;
+    transform: skew(25deg);
+  }
+  .capsule .base {
+    position: absolute; left: 0; top: 62px;
+    width: 112px; height: 99px;
+    background: linear-gradient(to right, #f3f3f3 63%, #e0e0e0 63%)
+  }
+  .window-big {
+    width: 70px; height: 70px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 57px; left: 66px;
+    z-index: 110;
+  }
+  .window-small {
+    width: 44px; height: 44px;
+    background: #272425 url("http://samsamlog.com/design/img/roket_img.png");
+    border-radius: 50%;
+    position: absolute;
+    left: 79px; top: 70px;
+    z-index: 120;
+  }
+
+  .wing-left {
+    position: absolute;
+    left: 16px; top: 82px;
+    height: 103px; width: 0; padding: 0;
+    border-right: 38px solid #00537e;
+    border-bottom: 19px solid transparent;
+    border-top: 21px solid transparent;
+    transform: rotate(10deg) skew(5deg);
+  }
+  .wing-left:after {
+    content:'';
+    position: absolute;
+    bottom: -50px;
+    width: 0; height: 0;
+    border-top: 20px solid transparent;
+    border-right: 50px solid black;
+    border-bottom: 50px solid transparent;
+  }
+  .wing-right {
+    position: absolute;
+    height: 97px; width: 0; padding: 0;
+    top: 67px; right: 30px;
+    border-right: 40px solid #00537e;
+    border-bottom: 15px solid transparent;
+    border-top: 0px solid transparent;
+    transform: rotate(-10deg) skew(-5deg);
+  }
+  .wing-right:after {
+    content:'';
+    position: absolute;
+    top: -33px; left: -58px;
+    width: 101px; height: 0;
+    border-top: 23px solid transparent;
+    border-right: 68px solid black;
+    border-bottom: 45px solid transparent;
+  }
+  .tail {
+    position: absolute;
+    width: 101px; height: 0;
+    top: 153px; left: 51px;
+    border-top: 23px solid #00537e;
+    border-left: 9px solid transparent;
+    border-right: 8px solid transparent;
+    z-index: 100;
+  }
+
+  .fire-1 {
+    position: absolute; z-index: 90;
+    left: 64px; top: 169px;
+    width: 70px; height: 70px;
+    background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+    transform: rotate(-40deg) skew(1deg,-11deg);
+    animation: main_fire 0.1s ease-in infinite;
+  }
+  @keyframes main_fire {
+    0% {transform: translate(0, 5px) scale(1.1,1) rotate(-33deg) skew(0deg, -30deg);}
+    100% {transform: translate(0, 0px) scale(1.1,2) rotate(-33deg) skew(0deg, -30deg);}
+  }
+  .fire-2 {
+    position: absolute; z-index: 90;
+    left: 63px; top: 230px;
+    width: 33px; height: 33px;
+    background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+    transform: rotate(-33deg) skew(0deg,-30deg);
+    animation: fire-2 0.3s ease-in infinite;
+  }
+  @keyframes fire-2 {
+    0% {transform:translate(0, -10px) scale(1) rotate(-33deg) skew(0deg, -30deg); opacity:1;}
+    100% {transform:translate(0, 50px) scale(0.7) rotate(-33deg) skew(0deg, -30deg); opacity:0;}
+  }
+
+  .fire-3 {
+    position: absolute; z-index: 90;
+    left: 50px; top: 196px;
+    width: 22px; height: 22px;
+    background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+    transform: rotate(-33deg) skew(0deg,-30deg);
+    animation: fire-2 0.3s 0.2s ease-in infinite;
+  }
+  .fire-4 {
+    position: absolute; z-index: 90;
+    left: 126px; top: 200px;
+    width: 22px; height: 22px;
+    background: linear-gradient(135deg, #ef8832 50%, #e82134 50%);
+    transform: rotate(-33deg) skew(0deg,-30deg);
+    animation: fire-2 0.3s ease-in infinite;
+  }
+
+  .spark-1 {
+    position: absolute;
+    left: 40px; bottom: 77px;
+    width: 12px; height: 12px;
+    background: #e82134;
+    animation: spark-fire 0.24s infinite;
+  }
+  .spark-2 {
+    position: absolute;
+    left: 132px; bottom: 68px;
+    width: 10px; height: 10px;
+    background: #ef8b32;
+    animation: spark-fire 0.24s infinite;
+  }
+  .spark-3 {
+    position: absolute;
+    left: 109px; bottom: 80px;
+    width: 10px; height: 10px;
+    background: #e82134;
+    animation: spark-fire 0.24s infinite;
+  }
+  .spark-4 {
+    position: absolute;
+    left: 83px; bottom: 20px;
+    width: 10px; height: 10px;
+    background: #ef8b32;
+    animation: spark-fire 0.24s infinite;
+  }
+  @keyframes spark-fire {
+    0% {transform: translate(0, -10px); opacity: 1;}
+    100% {transform: translate(0, 50px); opacity: 0;}
+  }
+
+  @keyframes space {
+    0% {transform: translate(0, -100px) scale(1,0); opacity: 1;}
+    100% {transform: translate(0, 100px) scale(1,1); opacity: 0;}
+  }
+
+}
