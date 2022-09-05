@@ -1,7 +1,11 @@
 require 'securerandom'
 class CreatorsController < ApplicationController
   def index
-    @creators = Creator.all
+    if params[:query].present?
+      @creators = Creator.search_by_title(params[:query])
+    else
+      @creators = Creator.all
+    end
   end
 
   def new
