@@ -1,9 +1,10 @@
 
 .banner3 {
-  height: 30vh;
+  height: 60vh;
   width: 100vw;
   background-color: black;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   margin-top: 60px;
 }
 
@@ -22,16 +23,157 @@
 
 .text-banner3 {
   position: relative;
-  bottom: 100px;
-  left: 120px;
+
 }
 
 .button-banner3 {
   position: relative;
-  top: -90px;
-  left: -150px;
+
 }
 
 .fa-heart {
   color: #D23333;
+}
+
+
+.banner3-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.animation-banner3{
+    width: 30vw;
+    body {
+      background: #eef;
+      height: 20vh;
+      width: 20vw;
+      overflow: hidden;
+      position: relative;
+      right: 500px;
+
+  }
+
+  #space {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    transform-style: preserve-3d;
+    perspective: 700px;
+  }
+  #space .space_field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+  }
+  #space .space_field .planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    border-radius: 100%;
+    box-sizing: border-box;
+    border: 12px solid #000;
+  }
+  #space .space_field.mother .planet {
+    width: 200px;
+    height: 200px;
+    background: #ff5032;
+    transform: translate(-50%, -50%);
+  }
+  #space .space_field.mother .planet::before {
+    content: '';
+    position: absolute;
+    top: -12%;
+    left: -12%;
+    width: 100%;
+    height: 100%;
+    background: #642800;
+    border-radius: 100%;
+    mix-blend-mode: screen;
+  }
+  #space .space_field.satellite .planet {
+    left: 100%;
+    width: 50px;
+    height: 50px;
+    background: #3250ff;
+    transform: translate(-50%, -50%);
+  }
+  #space .space_field.satellite .planet::before {
+    content: '';
+    position: absolute;
+    top: -15%;
+    left: -15%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 100%;
+  }
+  #space .space_field_wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+  #space .space_field_wrapper:nth-child(1) {
+    transform: rotateZ(0deg);
+  }
+  #space .space_field_wrapper:nth-child(1) .space_field.satellite {
+    animation: orbit 2400ms linear infinite;
+  }
+  #space .space_field_wrapper:nth-child(1) .space_field.satellite .planet {
+    animation: planet 2400ms linear infinite;
+    background: #9323e1;
+  }
+  #space .space_field_wrapper:nth-child(2) {
+    transform: rotateZ(-20deg);
+  }
+  #space .space_field_wrapper:nth-child(2) .space_field.satellite {
+    animation: orbit 2800ms linear infinite;
+  }
+  #space .space_field_wrapper:nth-child(2) .space_field.satellite .planet {
+    animation: planet 2800ms linear infinite;
+    background: #2db9c7;
+  }
+  #space .space_field_wrapper:nth-child(3) {
+    transform: rotateZ(-40deg);
+  }
+  #space .space_field_wrapper:nth-child(3) .space_field.satellite {
+    animation: orbit 3200ms linear infinite;
+  }
+  #space .space_field_wrapper:nth-child(3) .space_field.satellite .planet {
+    animation: planet 3200ms linear infinite;
+    background: #cebc2a;
+  }
+  #space .space_field_wrapper:nth-child(4) {
+    transform: rotateZ(-60deg);
+  }
+  #space .space_field_wrapper:nth-child(4) .space_field.satellite {
+    animation: orbit 3600ms linear infinite;
+  }
+  #space .space_field_wrapper:nth-child(4) .space_field.satellite .planet {
+    animation: planet 3600ms linear infinite;
+    background: #b5cc04;
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotateY(360deg);
+    }
+  }
+  @keyframes planet {
+    0% {
+      transform: translate(-50%, -50%) rotateY(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotateY(-360deg);
+    }
+  }
+
 }

@@ -49,7 +49,7 @@ $fontSize: 30px;
 
 .carousel-banner {
 	position: relative;
-	width: 100%;
+  right: 640px;
 	text-align: center;
 	font-size: $fontSize;
 	line-height: $fontSize * 1.5;
@@ -57,7 +57,7 @@ $fontSize: 30px;
 
 	.pre-banner {
     position: relative;
-    right: 630px;
+
 	}
 
 	.change_outer-banner {
