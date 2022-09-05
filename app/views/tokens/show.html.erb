@@ -9,7 +9,7 @@
 
 <h4><strong>Token(s) minted so far: </strong><%= @token.minted_so_far %></h4>
 
-<%  if @token.max_mint == @token.minted_so_far %>
+<%  if @token.unlimited == false && @token.max_mint == @token.minted_so_far %>
   <p>-- Limit Reached --</p>
   <p>-- No more of this token can be generated --</p>
 <% else %>

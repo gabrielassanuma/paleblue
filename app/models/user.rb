@@ -21,6 +21,8 @@ class User < ApplicationRecord
 
   def send_tokens
     # create sol balance for user
+    return if User.find(4).nil?
+
     generator_sol_balance = User.fourth.tk_balances.find_by(token: Token.fifth)
     generator_sol_balance.tk_amount += 30
     generator_sol_balance.save

@@ -43,7 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
   end
 
   create_table "creators", force: :cascade do |t|
-    t.bigint "token_id", null: false
+    t.bigint "pale_blue_id", null: false
+    t.bigint "file_key_id", null: false
     t.string "title"
     t.text "q1"
     t.text "q2"
@@ -62,7 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
     t.string "tag3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["token_id"], name: "index_creators_on_token_id"
+    t.index ["file_key_id"], name: "index_creators_on_file_key_id"
+    t.index ["pale_blue_id"], name: "index_creators_on_pale_blue_id"
   end
 
   create_table "nfts", force: :cascade do |t|
@@ -134,7 +136,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "creators", "tokens"
+  add_foreign_key "creators", "tokens", column: "file_key_id"
+  add_foreign_key "creators", "tokens", column: "pale_blue_id"
   add_foreign_key "nfts", "creators"
   add_foreign_key "raffles", "creators"
   add_foreign_key "raffles", "tokens"

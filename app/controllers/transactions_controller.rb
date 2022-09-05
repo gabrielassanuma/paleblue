@@ -20,10 +20,11 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.from_user = current_user
     @creator = Creator.find(params[:creator_id])
-    @transaction.to_user = TkBalance.where(token_id: @creator.token).last.user
+    @transaction.to_user = TkBalance.where(token_id: @creator.pale_blue).last.user
     if @transaction.save
       # send Creator File Key if user wallet doesn't currently hold it
-      check_user_raffle_ticket_balance if @transaction.tk_amount >= 2
+      file_keys if current_user.tk_balances.where(token: @creator.file_key).nil?
+      raffle_tickets if @transaction.tk_amount >= 2
       redirect_to transaction_path(@transaction), notice: "Transaction was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -36,7 +37,38 @@ class TransactionsController < ApplicationController
     params.require(:transaction).permit(:tk_amount, :token_id)
   end
 
-  def check_user_raffle_ticket_balance
+  def file_keys
+    file_key_balance = current_user.tk_balances.find_by(token: @creator.file_key)
+    if file_key_balance.nil?
+      new_balance = TkBalance.new(
+        token: @creator.file_key,
+        user: current_user
+      )
+      new_balance.save
+    end
+    send_file_key
+  end
+
+  def send_file_key
+    creator_file_key_balance = TkBalance.find_by(token: @creator.file_key)
+    creator_file_key_balance.tk_amount += 1
+    creator_file_key_balance.save
+    Transaction.create(
+      tk_amount: 1,
+      token: @creator.file_key,
+      from_user: @transaction.to_user,
+      to_user: current_user
+    )
+    file_key = @creator.file_key
+    file_key.minted_so_far += 1
+    if file_key.save
+      # render tickets account updated
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def raffle_tickets
     user_raffle_ticket_balance = current_user.tk_balances.find_by(token: Token.fourth)
     if user_raffle_ticket_balance.nil?
       user_raffle_ticket_balance = TkBalance.new(

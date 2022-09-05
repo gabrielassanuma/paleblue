@@ -6,7 +6,7 @@
           <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path @creator.photo.key %>>
         <% end  %>
         <h2><%= @creator.title %></h2>
-        <p>PaleBlue ID: <%= link_to @creator.token.tk_address, token_path(@creator.token)%></p>
+        <p>PaleBlue ID: <%= link_to @creator.pale_blue.tk_address, token_path(@creator.pale_blue)%></p>
         <p>Creator Since: <%= @creator.created_at %></p>
 
         <button><%= link_to "Donate", new_creator_transaction_path(@creator)%></button>
