@@ -15,17 +15,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Apply", new_creator_path,  class: "avatar pe-5", id: "navItemLayout" %>
-          </li>
-          <li class="nav-item">
-          <%= link_to "Creators", creators_path,  class: "avatar pe-5", id: "navItemLayout" %>
-          </li>
           <% pale_blue = User.first %>
           <% user_balances = TkBalance.where(user: current_user).where('tk_amount = ?', 1) %>
           <% creator_test = user_balances.select do |balance|  %>
-          <%   balance.token.user == pale_blue %>
+            <%   balance.token.user == pale_blue %>
           <% end %>
+          <% if creator_test.nil? %>
+            <li class="nav-item">
+              <%= link_to "Apply", new_creator_path,  class: "avatar pe-5", id: "navItemLayout" %>
+            </li>
+          <% end %>
+          <li class="nav-item">
+          <%= link_to "Creators", creators_path,  class: "avatar pe-5", id: "navItemLayout" %>
+          </li>
           <% if creator_test.length > 0  %>
             <li class="nav-item">
               <% creator_token = creator_test.first.token %>
