@@ -20,7 +20,7 @@
           <% creator_test = user_balances.select do |balance|  %>
             <%   balance.token.user == pale_blue %>
           <% end %>
-          <% if creator_test.nil? %>
+          <% if creator_test.empty? %>
             <li class="nav-item">
               <%= link_to "Apply", new_creator_path,  class: "avatar pe-5", id: "navItemLayout" %>
             </li>
@@ -53,7 +53,7 @@
         <% elsif controller_name=="sessions" && action_name == "new" %>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Connect Wallet", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

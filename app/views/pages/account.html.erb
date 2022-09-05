@@ -10,7 +10,7 @@
     <% end %>
   </div><br>
   <h2><strong>Transactions</strong></h2><br>
-    <div>
+    <div><h3>From this wallet:</h3>
       <% @user_from_transactions.each do |transaction| %>
         <p>-- Transaction ID: <%= transaction.id %>
         --  Amount: <%= transaction.tk_amount %> <%= transaction.token.nickname %> -- </p>
@@ -18,7 +18,7 @@
         --> To: <%= transaction.to_user.nickname %> @ <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
       <hr>
       <% end %>
-    </div>
+    </div><h3>To this wallet:</h3>
       <% @user_to_transactions.each do |transaction| %>
         <p>-- Transaction ID: <%= transaction.id %>
         --  Amount: <%= transaction.tk_amount %>  --  Token: <%= transaction.token.nickname %></p>
