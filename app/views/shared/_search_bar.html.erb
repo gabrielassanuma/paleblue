@@ -1,0 +1,17 @@
+<div class="input-group rounded">
+  <div data-controller='creator-autocomplete'>
+    <%= form_with url: creators_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control rounded searchbar",
+            placeholder: "Search for creators...",
+            data: {creator_autocomplete_target: 'creator'}
+      %>
+      <span class="input-group-text border-0" id="search-addon">
+        <button type="submit" class="searchbar_btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </span>
+    <% end %>
+  </div>
+</div>

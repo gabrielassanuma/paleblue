@@ -1,7 +1,11 @@
 require 'securerandom'
 class CreatorsController < ApplicationController
   def index
-    @creators = Creator.all
+    if params[:query].present?
+      @creators = Creator.search_by_title(params[:query])
+    else
+      @creators = Creator.all
+    end
   end
 
   def new
@@ -26,6 +30,8 @@ class CreatorsController < ApplicationController
 
   def show
     @creator = Creator.find(params[:id])
+    @nfts = Nft.where(creator: @creator)
+    @raffles = Raffle.where(creator: @creator)
   end
 
   def edit
@@ -33,12 +39,12 @@ class CreatorsController < ApplicationController
   end
 
   def nft_new
-    @creator = current_user
     @nft = Nft.new
+    @creator = Creator.find(params[:id])
   end
 
   def nft_create
-    @creator = current_user.creator
+    @creator = Creator.find(params[:id])
     @nft = Nft.new(nft_params)
     @nft.creator = @creator
     if @nft.save

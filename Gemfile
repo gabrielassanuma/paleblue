@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem 'faker'
 
+gem "pg_search"
+
 gem 'securerandom'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
