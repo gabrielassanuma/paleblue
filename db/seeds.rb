@@ -221,7 +221,8 @@ creator = Creator.new(
   tag1: 'Global',
   tag2: 'Marine',
   tag3: 'Environment',
-  token: Token.first
+  pale_blue: Token.first,
+  file_key: Token.third
 )
 creator.save!
 puts 'creator done'

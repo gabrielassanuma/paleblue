@@ -3,7 +3,8 @@
 class CreateCreators < ActiveRecord::Migration[7.0]
   def change
     create_table :creators do |t|
-      t.references :token, null: false, foreign_key: true
+      t.references :pale_blue, foreign_key: { to_table: :tokens }, null: false
+      t.references :file_key, foreign_key: { to_table: :tokens }, null: false
       t.string :title
       t.text :q1
       t.text :q2

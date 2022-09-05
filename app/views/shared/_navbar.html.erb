@@ -34,7 +34,7 @@
           <% if creator_test.length > 0  %>
             <li class="nav-item">
               <% creator_token = creator_test.first.token %>
-              <% creator = Creator.find_by(token: creator_token) %>
+              <% creator = Creator.find_by(pale_blue: creator_token) %>
               <%= link_to "New Raffle", new_creator_raffle_path(creator),  class: "avatar pe-5", id: "navItemLayout" %>
             </li>
             <li class="nav-item">

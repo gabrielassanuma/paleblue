@@ -14,7 +14,9 @@ class CreatorsController < ApplicationController
 
   def create
     @creator = Creator.new(creator_params)
-    @creator.token = create_pale_blue_id
+    @creator.pale_blue = create_pale_blue_id
+    @creator.file_key = create_file_key
+
     if @creator.save
       redirect_to edit_creator_path(@creator)
     else
@@ -56,6 +58,21 @@ class CreatorsController < ApplicationController
 
   private
 
+  def create_file_key
+    user = current_user
+    token = Token.new(
+      nickname: "File Key",
+      user:,
+      unlimited: true
+    )
+    if token.save
+      create_balance(token, user)
+    else
+      create_file_key
+    end
+    return token
+  end
+
   def create_pale_blue_id
     user = User.first
     pale_blue_id_number = Transaction.where(from_user: user).size + 1
@@ -64,7 +81,7 @@ class CreatorsController < ApplicationController
       user:
     )
     if token.save
-      create_pb_balances(token)
+      create_balance(token, user)
       send_token_to_applicant(token)
     else
       create_pale_blue_id
@@ -72,18 +89,25 @@ class CreatorsController < ApplicationController
     return token
   end
 
-  def create_pb_balances(token)
-    pb_balance = TkBalance.new(
-      tk_amount: token.max_mint,
-      token:,
-      user: User.first
-    )
-    pb_balance.save
-
-    creator_balance = TkBalance.new(
-      token:,
-      user: current_user
-    )
+  def create_balance(token, user)
+    if user == User.first
+      pb_balance = TkBalance.new(
+        tk_amount: token.max_mint,
+        token:,
+        user:
+      )
+      pb_balance.save
+      creator_balance = TkBalance.new(
+        token:,
+        user: current_user
+      )
+    else
+      creator_balance = TkBalance.new(
+        tk_amount: token.max_mint,
+        token:,
+        user: current_user
+      )
+    end
     creator_balance.save
     token.minted_so_far += 1
     token.save

@@ -2,7 +2,7 @@
 <p>Raffle: <%= @raffle.name %></p>
 <p>About: <%= @raffle.about %></p><br>
 <p>Raffle created by: <%= @raffle.creator.title %></p>
-<p><%= @raffle.creator.token.nickname %>: <%= link_to @raffle.creator.token.tk_address, token_path(@raffle.creator.token)%></p>
+<p><%= @raffle.creator.pale_blue.nickname %>: <%= link_to @raffle.creator.pale_blue.tk_address, token_path(@raffle.creator.pale_blue)%></p>
 <p><%= @raffle.tag1 %></p>
 <p><%= @raffle.tag2 %></p>
 <p><%= @raffle.tag3 %></p>
