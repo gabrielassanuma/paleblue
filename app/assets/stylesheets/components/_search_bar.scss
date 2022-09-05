@@ -1,0 +1,13 @@
+.searchbar {
+  max-width: 250px;
+}
+
+.searchbar_btn {
+  max-width: 250px;
+  border: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.6);
+}

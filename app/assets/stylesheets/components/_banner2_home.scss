@@ -1,12 +1,12 @@
 
 .banner2 {
-  height: 80vh;
+  height: 40vh;
   width: 100vw;
   background-color: black;
   display: inline-flex;
 }
 
-.banner2 h1, .banner2 h2, .banner2 h4 {
+.banner2 h5, .banner2 h2, .banner2 h4 {
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-weight: bold;
@@ -28,14 +28,14 @@
 
 .button-banner2 {
   position: relative;
-  top: 190px;
+  top: 120px;
   right: 770px;
 
 }
 
 .banner2-animation {
   position: relative;
-  bottom: 240px;
+  bottom: 200px;
   left: 88px;
   height: 20vh;
 }
