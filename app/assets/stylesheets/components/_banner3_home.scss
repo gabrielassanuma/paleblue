@@ -4,10 +4,10 @@
   width: 100vw;
   background-color: black;
   display: inline-flex;
-  margin-top: -180px;
+  margin-top: 60px;
 }
 
-.banner3 h1, .banner3 h2, .banner3 h4 {
+.banner3 h5, .banner3 h2, .banner3 h4  {
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-weight: bold;
@@ -29,7 +29,7 @@
 .button-banner3 {
   position: relative;
   top: -90px;
-  left: -150px
+  left: -150px;
 }
 
 .fa-heart {
