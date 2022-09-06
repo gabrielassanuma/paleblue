@@ -8,3 +8,16 @@
   grid-gap: 16px;
   padding: 14px;
 }
+
+.creator-index-card {
+  max-width: 100%;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  margin:5px;
+  background-color: rgba(255, 255, 255, 0.09);
+
+  a {
+    color: #568FB3;
+  }
+}

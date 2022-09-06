@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row creator-container">
-    <div class="creator-card" data-aos="flip-left">
+    <div class="creator-card">
       <div class="col-8">
         <div id="creator-top-left">
           <div id="creator-photo-description">
@@ -10,8 +10,8 @@
               <% end %>
             </div>
             <div>
-              <h1><%= @creator.title %></h1>
-              <p class='description-creator'>Creator Since: <%= @creator.created_at.to_date %></p>
+              <h1 id='title'><%= @creator.title %></h1>
+              <p class='font-16'>Creator Since: <%= @creator.created_at.to_date %></p>
             </div>
           </div>
           <div id='about-part'>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="col-4 ">
-        <div id='btn-create' data-aos="fade-up">
+        <div id='btn-create'>
           <%= link_to "Donate", new_creator_transaction_path(@creator), class: 'btn-ghost'%>
         </div>
         <div class='links-display'>
@@ -38,9 +38,9 @@
     </div>
     <div class='creator-bottom-left' data-aos="fade-right">
       <h3>Tags</h3>
-      <p class='tag-layout'>#<%= @creator.tag1 %></p>
-      <p class='tag-layout'>#<%= @creator.tag2 %></p>
-      <p class='tag-layout'>#<%= @creator.tag3 %></p>
+      <p class='font-16'>#<%= @creator.tag1 %></p>
+      <p class='font-16'>#<%= @creator.tag2 %></p>
+      <p class='font-16'>#<%= @creator.tag3 %></p>
     </div>
     <div class='creator-bottom-right' data-aos="fade-left">
       <div id='creator-between-right'>
@@ -57,7 +57,7 @@
       <div>
         <h2>Creator Raffles</h2>
         <% @raffles.each do |raffle| %>
-          <p class='description-creator'><%= raffle.name %></p>
+          <p class='font-16'><%= raffle.name %></p>
           <% if raffle.token.photo.key  %>
             <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path raffle.token.photo.key %>>
           <% end  %>
