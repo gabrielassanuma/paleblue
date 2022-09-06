@@ -1,18 +1,7 @@
 <div style="color:white; margin: 60px">
   <h1> <strong>Available Downloads:</strong></h1>
   <% @creators.each do |creator| %>
-    <p>For: <%= creator.pale_blue.nickname %></p>
+    <p>Creator: <%= creator.title %></p>
+    <p>Example zipfiles for each creator file key</p>
   <% end  %>
-  <% files = []  %>
-  <% @creators.each do |creator| %>
-    <% Nft.where(creator:).each do |record| %>
-      <% if record.photos[0].key  %>
-        <% record.photos.each do |file|   %>
-          <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path file.key %>>
-        <% end %>
-      <% end  %>
-    <% end %>
-  <% end %>
-
-
 </div>
