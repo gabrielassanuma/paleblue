@@ -6,6 +6,7 @@ class CreateRaffles < ActiveRecord::Migration[7.0]
       t.string :tag1
       t.string :tag2
       t.string :tag3
+      t.string :metadata
       t.references :creator, null: false, foreign_key: true
       t.references :token, null: false, foreign_key: true
 

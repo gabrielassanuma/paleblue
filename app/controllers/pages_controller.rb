@@ -19,4 +19,18 @@ class PagesController < ApplicationController
       @user_balances << balance
     end
   end
+
+  def available_downloads
+    balances = current_user.tk_balances.where(tk_amount: 1)
+    keys = []
+    balances.each do |balance|
+      keys << balance.token if balance.token.nickname.include?('File Key')
+    end
+    @creators = []
+    keys.each do |key|
+      @creators << Creator.find_by(file_key: key)
+    end
+    files = []
+    
+  end
 end

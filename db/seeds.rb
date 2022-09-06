@@ -236,7 +236,8 @@ raffle = Raffle.new(
   tag2: 'Marine',
   tag3: 'Environment',
   creator: Creator.first,
-  token: Token.second
+  token: Token.second,
+  metadata: []
 )
 raffle.save!
 puts 'raffle done :) enjoy the game'

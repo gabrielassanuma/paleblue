@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_081614) do
     t.string "tag1"
     t.string "tag2"
     t.string "tag3"
+    t.string "metadata"
     t.bigint "creator_id", null: false
     t.bigint "token_id", null: false
     t.datetime "created_at", null: false
