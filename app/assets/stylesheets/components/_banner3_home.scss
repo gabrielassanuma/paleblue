@@ -23,11 +23,14 @@
 
 .text-banner3 {
   position: relative;
+  margin-left: 100px;
 
 }
 
 .button-banner3 {
   position: relative;
+  margin-left: 100px;
+  top: 12px;
 
 }
 
@@ -39,10 +42,15 @@
 .banner3-content {
   display: flex;
   flex-direction: row;
+  width: 100vw;
 }
 
 .animation-banner3{
-    width: 30vw;
+    width: 20vw;
+    position: relative;
+    right: 80px;
+    top: 90px;
+
     body {
       background: #eef;
       height: 20vh;
@@ -76,12 +84,12 @@
     overflow: hidden;
     border-radius: 100%;
     box-sizing: border-box;
-    border: 12px solid #000;
+
   }
   #space .space_field.mother .planet {
     width: 200px;
     height: 200px;
-    background: #ff5032;
+    background: #33566c;
     transform: translate(-50%, -50%);
   }
   #space .space_field.mother .planet::before {
@@ -91,7 +99,7 @@
     left: -12%;
     width: 100%;
     height: 100%;
-    background: #642800;
+    background: #33566c;
     border-radius: 100%;
     mix-blend-mode: screen;
   }
@@ -99,7 +107,7 @@
     left: 100%;
     width: 50px;
     height: 50px;
-    background: #3250ff;
+    background: black;
     transform: translate(-50%, -50%);
   }
   #space .space_field.satellite .planet::before {
@@ -109,7 +117,7 @@
     left: -15%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.4);
+    background: #97BEF1(255, 255, 255, 0.4);
     border-radius: 100%;
   }
   #space .space_field_wrapper {
@@ -122,10 +130,10 @@
     transform: rotateZ(0deg);
   }
   #space .space_field_wrapper:nth-child(1) .space_field.satellite {
-    animation: orbit 2400ms linear infinite;
+    animation: orbit 2600ms linear infinite;
   }
   #space .space_field_wrapper:nth-child(1) .space_field.satellite .planet {
-    animation: planet 2400ms linear infinite;
+    animation: planet 2600ms linear infinite;
     background: #9323e1;
   }
   #space .space_field_wrapper:nth-child(2) {
@@ -136,7 +144,7 @@
   }
   #space .space_field_wrapper:nth-child(2) .space_field.satellite .planet {
     animation: planet 2800ms linear infinite;
-    background: #2db9c7;
+    background: #C1D8F6;
   }
   #space .space_field_wrapper:nth-child(3) {
     transform: rotateZ(-40deg);
@@ -146,17 +154,17 @@
   }
   #space .space_field_wrapper:nth-child(3) .space_field.satellite .planet {
     animation: planet 3200ms linear infinite;
-    background: #cebc2a;
+    background: #75a8d9;
   }
   #space .space_field_wrapper:nth-child(4) {
     transform: rotateZ(-60deg);
   }
   #space .space_field_wrapper:nth-child(4) .space_field.satellite {
-    animation: orbit 3600ms linear infinite;
+    animation: orbit 4200ms linear infinite;
   }
   #space .space_field_wrapper:nth-child(4) .space_field.satellite .planet {
-    animation: planet 3600ms linear infinite;
-    background: #b5cc04;
+    animation: planet 4200ms linear infinite;
+    background: #f3f3f3;
   }
 
   @keyframes orbit {

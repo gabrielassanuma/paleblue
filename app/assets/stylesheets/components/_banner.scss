@@ -2,16 +2,18 @@
   background-image: url("banner.jpeg");
   background-color: black;
   height: 800px;
+  width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 80px;
 }
 
-.banner h1, .banner h2, .banner h3 {
+.banner h1 {
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-weight: bold;
+  width: 400px;
 }
 
 
@@ -27,6 +29,7 @@
   display: flex;
   position: relative;
   top: 20px;
+  width: 40vw;
 }
 
 .button-banner-1 {
@@ -45,57 +48,60 @@ $fontSize: 30px;
 .center-banner {
   color: white;
 	margin-top: ($fontSize * 1.5) / -2;
-}
+  width: 200px;
 
-.carousel-banner {
-	position: relative;
-  right: 640px;
-	text-align: center;
-	font-size: $fontSize;
-	line-height: $fontSize * 1.5;
-	height: $fontSize * 1.5;
 
-	.pre-banner {
+  .carousel-banner {
     position: relative;
+    width: 300px;
+    text-align: center;
+    font-size: $fontSize;
+    line-height: $fontSize * 1.5;
+    height: $fontSize * 1.5;
 
-	}
+    .pre-banner {
+      position: relative;
+      right: 60px;
 
-	.change_outer-banner {
-		text-align: left;
-		height: $fontSize * 1.5;
-		overflow: hidden;
-    position: relative;
-    bottom: 43px;
-    left: 187px;
+    }
 
-		.change_inner-banner {
-			position: relative;
-			animation: rotate 10s ease-in-out infinite;
-		}
+    .change_outer-banner {
+      text-align: left;
+      height: $fontSize * 1.5;
+      overflow: hidden;
+      position: relative;
+      bottom: 43px;
+      left: 187px;
 
-		.element-banner {
-			display: block;
-			font-weight: 700;
-		}
+      .change_inner-banner {
+        position: relative;
+        animation: rotate 10s ease-in-out infinite;
+      }
 
-	}
+      .element-banner {
+        display: block;
+        font-weight: 800px;
+      }
 
-}
+    }
 
-@keyframes rotate {
-	0%, 20% {
-		transform: translateY(0);
-	}
-	25%,45% {
-		transform: translateY($fontSize * -1.5);
-	}
-	50%,70% {
-		transform: translateY($fontSize * -3);
-	}
-	75%,95% {
-		transform: translateY($fontSize * -4.5);
-	}
-	100% {
-		transform: translateY($fontSize * -6);
-	}
+  }
+
+  @keyframes rotate {
+    0%, 20% {
+      transform: translateY(0);
+    }
+    25%,45% {
+      transform: translateY($fontSize * -1.5);
+    }
+    50%,70% {
+      transform: translateY($fontSize * -3);
+    }
+    75%,95% {
+      transform: translateY($fontSize * -4.5);
+    }
+    100% {
+      transform: translateY($fontSize * -6);
+    }
+  }
 }
