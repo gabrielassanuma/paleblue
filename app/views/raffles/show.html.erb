@@ -1,21 +1,54 @@
-<div style="color:white;margin:150px">
-<p>Raffle: <%= @raffle.name %></p>
-<p>About: <%= @raffle.about %></p><br>
-<p>Raffle created by: <%= @raffle.creator.title %></p>
-<p><%= @raffle.creator.pale_blue.nickname %>: <%= link_to @raffle.creator.pale_blue.tk_address, token_path(@raffle.creator.pale_blue)%></p>
-<p><%= @raffle.tag1 %></p>
-<p><%= @raffle.tag2 %></p>
-<p><%= @raffle.tag3 %></p>
-<% if @raffle.token.photo.key  %>
-  <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path @raffle.token.photo.key %>>
-<% end  %>
-  <br>
-<p>Raffle item: <%= @raffle.token.nickname %></p>
-<p>Item address: <%= link_to @raffle.token.tk_address, token_path(@raffle.token)%></p>
-</div>
+<div>
+  <div class="raffle-show">
+    <div class="raffle-show-l">
+      <div class="raffle-picture">
+        <% if @raffle.token.photo.key  %>
+          <img style="height: 300px; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;" src= <%= cl_image_path @raffle.token.photo.key %>>
+        <% end  %>
+      </div>
+      <div class="raffle-info" >
+        <div class="raffle-tab">
+          <main>
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1">Raffle details</label>
 
-<%= simple_form_for [@raffle, @redeem] do |f| %>
-          <%= f.input :tk_amount %>
-          <div class='d-flex' style='justify-content: space-between;'>
-          <%= f.button :submit, 'Redeem', class: 'btn btn-ghost' %>
-<% end %>
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2">Transactions</label>
+
+            <section id="content1">
+              <p>Raffle: <%= @raffle.name %></p>
+              <p>About: <%= @raffle.about %></p><br>
+              <p>Raffle created by: <%= @raffle.creator.title %></p>
+              <p><%= @raffle.creator.pale_blue.nickname %>: <%= link_to @raffle.creator.pale_blue.tk_address, token_path(@raffle.creator.pale_blue)%></p>
+              <p><%= @raffle.tag1 %></p>
+              <p><%= @raffle.tag2 %></p>
+              <p><%= @raffle.tag3 %></p>
+            </section>
+
+            <section id="content2">
+              <p>Raffle item: <%= @raffle.token.nickname %></p>
+              <p>Item address: <%= link_to @raffle.token.tk_address, token_path(@raffle.token)%></p>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+    <div class="raffle-show-r">
+      <div class="simple-form-raffle">
+      <%= simple_form_for [@raffle, @redeem] do |f| %>
+        <%= f.input :tk_amount, class: 'border-form-raffle' %>
+        <%= f.button :submit, 'Redeem', class: 'btn btn-ghost' %>
+      <% end %>
+      </div>
+      <div class="share-raffle">
+        <h3>Share campaign</h3>
+        <h5>Share this unique link with your <br>network to further your impact.</h5>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
