@@ -1,14 +1,17 @@
-<div style="color:white">
-  <%= simple_form_for [@creator, @raffle] do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :name %>
-    <%= f.input :about, as: :text %>
-    <%= f.simple_fields_for :token do |f| %>
-            <h3>Add a Raffle Item</h3>
-            <%= f.error_notification %>
-            <%= f.input :nickname %>
-            <%= f.input :photo, as: :file %>
-          <% end %>
-    <%= f.button :submit, class: "btn btn-ghost" %>
-  <% end %>
+<div class="new-raffle">
+  <div class="new-raffle-content">
+    <%= simple_form_for [@creator, @raffle] do |f| %>
+      <%= f.error_notification %>
+      <h3>Add info about your raffle</h3>
+      <%= f.input :name %>
+      <%= f.input :about, as: :text %>
+      <%= f.simple_fields_for :token do |f| %>
+              <h3>Add a Raffle Item</h3>
+              <%= f.error_notification %>
+              <%= f.input :nickname %>
+              <%= f.input :photo, as: :file %>
+            <% end %>
+      <%= f.button :submit, class: "btn btn-ghost" %>
+    <% end %>
+  </div>
 </div>
