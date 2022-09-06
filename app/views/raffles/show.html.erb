@@ -20,9 +20,6 @@
               <p>About: <%= @raffle.about %></p><br>
               <p>Raffle created by: <%= @raffle.creator.title %></p>
               <p><%= @raffle.creator.pale_blue.nickname %>: <%= link_to @raffle.creator.pale_blue.tk_address, token_path(@raffle.creator.pale_blue)%></p>
-              <p><%= @raffle.tag1 %></p>
-              <p><%= @raffle.tag2 %></p>
-              <p><%= @raffle.tag3 %></p>
             </section>
 
             <section id="content2">
@@ -36,8 +33,20 @@
     <div class="raffle-show-r">
       <div class="simple-form-raffle">
       <%= simple_form_for [@raffle, @redeem] do |f| %>
-        <%= f.input :tk_amount, class: 'border-form-raffle' %>
-        <%= f.button :submit, 'Redeem', class: 'btn btn-ghost' %>
+      <div class="raffle-default-values">
+        <div class="raffle-default-values1" >
+          <%= f.button :submit, ' 5,00 €', class: 'btn btn-ghost', style: 'margin: 0 15px' %>
+          <%= f.button :submit, '10,00 €', class: 'btn btn-ghost', style: 'margin: 0 15px' %>
+        </div>
+        <div class="raffle-default-values2">
+          <%= f.button :submit, '15,00 €', class: 'btn btn-ghost', style: 'margin: 15px' %>
+          <%= f.button :submit, '20,00 €', class: 'btn btn-ghost', style: 'margin: 15px' %>
+        </div>
+      </div>
+        <div class="raffle-special-value">
+          <%= f.input :tk_amount, class: 'border-form-raffle'%>
+          <%= f.button :submit, 'Donate', class: 'btn btn-ghost' %>
+        </div>
       <% end %>
       </div>
       <div class="share-raffle">

@@ -1,13 +1,13 @@
-<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon" style="background-color: black">
+<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon" style="background-color: black ;height: 60px;">
   <div class="container-fluid">
     <% if controller_name=="pages" && action_name == "home" %>
     <div class='d-flex align-items-center'>
-      <p style="font-size: 34px; color: black;">PaleBlue</p>
+      <p style="font-size: 24px; color: black;">PaleBlue</p>
       <%= render "shared/search_bar" %>
     </div>
     <% else %>
       <%= link_to root_path, class: "navbar-brand" do %>
-      <p style="font-size: 34px; color: white;">PaleBlue</p>
+      <p style="font-size: 24px; color: white; margin-right: 30px;">PaleBlue</p>
       <% end %>
     <% end %>
 

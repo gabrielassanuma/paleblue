@@ -1,6 +1,7 @@
 .raffle-show {
   color: white;
   background-color: #4d4d4d;
+  height: 48vw;
   margin: 0px 80px;
   padding: 30px;
   border-radius: 5px;
@@ -14,6 +15,8 @@
   .raffle-show-r {
     display: flex;
     flex-direction: column;
+    position: relative;
+    bottom: 120px;
   }
 
   .simple-form-raffle {
@@ -28,15 +31,15 @@
   .raffle-info {
     margin-top: 0px;
     position: relative;
-    right: 30px;
-    top: 20px;
+    right: 20px;
+    bottom: 20px;
 
   }
 
   .share-raffle {
     position: relative;
-    top: 250px;
-    left: 200px;
+    top: 270px;
+    left: 100px;
 
   }
 
@@ -50,4 +53,22 @@
     color: #52758a
   }
 
+  .raffle-default-values1 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    right: 80px;
+  }
+
+  .raffle-default-values2 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    right: 80px;
+  }
+
+  .raffle-special-value {
+    position: relative;
+    right: 55px;
+  }
 }
