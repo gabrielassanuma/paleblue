@@ -1,0 +1,75 @@
+.body {
+  color:white;
+}
+.token-cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+.token-card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  border: 2px solid white;
+  background-color: black;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+h1 {
+  font-family: 'Poppins';
+  font-size: 40px;
+}
+
+h2, h3 {
+  font-family: 'Poppins';
+  font-weight: 300;
+}
+
+.wallet {
+  display: flex;
+  justify-content: center;
+}
+
+.wallet-info, .balances-info, .transactions-info {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+  text-overflow: ellipsis;
+  padding: 5px;
+  margin: 15px;
+}
+
+.wallet-info {
+  width: 55%;
+}
+
+.tx-cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.tx-card {
+  display: grid;
+  width: 100%;
+  flex-direction: row;
+  text-align: left;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: none;
+  background-color: black;
+  padding: 15px;
+  border-radius: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+p{
+  margin-bottom: 0;
+}
