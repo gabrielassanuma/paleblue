@@ -1,29 +1,55 @@
-<div style="color:white; margin: 60px">
- <h1> <strong>Account for:</strong></h1>
- <h2><%= @user.nickname %> @ Wallet Address: <%= @user.wlt_address %></h2><br>
- <div>
-    <h2><strong>Balances</strong></h2><br>
-    <% @user_balances.each do |balance| %>
-      <p>Token: <%= balance.token.nickname %> -- Address: <%= link_to balance.token.tk_address, token_path(balance.token)%></p>
-      <p>Balance: <%= balance.tk_amount %></p>
-      <hr>
-    <% end %>
-  </div><br>
-  <h2><strong>Transactions</strong></h2><br>
-    <div><h3>From this wallet:</h3>
-      <% @user_from_transactions.each do |transaction| %>
-        <p>-- Transaction ID: <%= transaction.id %>
-        --  Amount: <%= transaction.tk_amount %> <%= transaction.token.nickname %> -- </p>
-        <p>Sender: <%= transaction.from_user.nickname %> @ <%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%>
-        --> To: <%= transaction.to_user.nickname %> @ <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
-      <hr>
-      <% end %>
-    </div><h3>To this wallet:</h3>
-      <% @user_to_transactions.each do |transaction| %>
-        <p>-- Transaction ID: <%= transaction.id %>
-        --  Amount: <%= transaction.tk_amount %>  --  Token: <%= transaction.token.nickname %></p>
-        <p>Sender: <%= transaction.from_user.nickname %> @ <%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%> --> To: <%= transaction.to_user.nickname %> @ <%= link_to transaction.to_user.wlt_address, account_path(transaction.to_user)%></p>
-      <hr>
-      <% end %>
+<div class ="body">
+    <div class="wallet">
+      <div class="wallet-info text-center p-3">
+        <h1><%= @user.nickname %>'s Wallet</h1>
+        <h3>address: <%= @user.wlt_address %></h3>
+      </div>
     </div>
-</div>
+    <div class="balances-info">
+      <div class="text-center p-3">
+        <h2>Balances</h2>
+      </div>
+      <div class="token-cards">
+        <% @user_balances.each do |balance| %>
+          <div class="token-card">
+          <%= link_to balance.token.nickname, token_path(balance.token), class:"text-decoration-none"%>
+            <div class="token-info">
+            <p>Balance: <%= balance.tk_amount %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+  <div class="transactions-info">
+    <div class="text-center p-3">
+      <h2>Transactions</h2>
+    </div>
+
+    <div class="tx-container">
+      <div>
+        <div class="tx-cards">
+          <div class="tx-card" style="background:none;padding:none;">
+              <p>Global TxID</p>
+              <p>Amount</p>
+              <p>From</p>
+              <p style="text-align:right">To</p>
+            </div>
+        <% user_txs = @user_from_transactions + @user_to_transactions %>
+        <% user_txs.sort_by!{|e| -e[:id]}  %>
+            <% user_txs.each do |transaction| %>
+            <div class="tx-card">
+              <p><%= transaction.id %></p>
+              <p><%= transaction.tk_amount %> - <%= transaction.token.nickname %></p>
+              <p><%= link_to transaction.from_user.nickname, account_path(transaction.from_user)%></p>
+              <p style="text-align:right"><%= link_to transaction.to_user.nickname, account_path(transaction.to_user)%></p>
+              <!--<p>Sender: <%= transaction.from_user.nickname %><%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%></p>-->
+            </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
