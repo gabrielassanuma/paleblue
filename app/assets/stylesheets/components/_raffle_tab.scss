@@ -1,0 +1,113 @@
+.raffle-tab{
+  @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+  *, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font: 14px/1 'Open Sans', sans-serif;
+    color: #52758a;
+    background: #eee;
+  }
+
+  h1 {
+    font-weight: 400;
+    text-align: center;
+  }
+
+  p {
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+
+  main {
+    width: 800px;
+
+    padding: 22px;
+    margin: 0 auto;
+    background: #171717;
+  }
+
+  section {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    border: 1px solid transparent;
+  }
+
+  label:before {
+    font-family: fontawesome;
+    font-weight: normal;
+    margin-right: 10px;
+  }
+
+  label[for*='1']:before {
+    content: '\f1cb';
+  }
+
+  label[for*='2']:before {
+    content: '\f17d';
+  }
+
+  label[for*='3']:before {
+    content: '\f16b';
+  }
+
+  label[for*='4']:before {
+    content: '\f1a9';
+  }
+
+  label:hover {
+    color: #52758a;
+    cursor: pointer;
+  }
+
+  input:checked + label {
+    color: #52758a;
+    border: 1px solid #ddd;
+    border-top: 2px solid #52758a;
+    border-bottom: 1px solid #4d4d4d;
+  }
+
+  #tab1:checked ~ #content1,
+  #tab2:checked ~ #content2,
+  #tab3:checked ~ #content3,
+  #tab4:checked ~ #content4 {
+    display: block;
+  }
+
+  @media screen and (max-width: 650px) {
+    label {
+      font-size: 0;
+    }
+
+    label:before {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    label {
+      padding: 15px;
+    }
+  }
+}

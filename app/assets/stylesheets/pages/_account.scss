@@ -44,6 +44,8 @@ h2, h3 {
 }
 
 .wallet-info, .balances-info, .transactions-info {
+  background-color: #171717;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
   border-radius: 9px;
   text-overflow: ellipsis;
   padding: 5px;
@@ -76,7 +78,7 @@ h2, h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border: 1px solid white;
+  border: 0.1px solid white;
 }
 
 p{

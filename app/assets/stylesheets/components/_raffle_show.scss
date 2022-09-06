@@ -1,0 +1,75 @@
+.raffle-show {
+  color: white;
+  background-color: #171717;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  height: 48vw;
+  margin: 3px 80px;
+  padding: 30px;
+  border-radius: 5px;
+  display: flex;
+
+  .raffle-show-l {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .raffle-show-r {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 120px;
+  }
+
+  .simple-form-raffle {
+    width: 350px;
+    position: relative;
+    top: 120px;
+
+  }
+  .border-form-raffle {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  }
+  .raffle-info {
+    margin-top: 0px;
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+
+  }
+
+  .share-raffle {
+    position: relative;
+    top: 270px;
+    left: 100px;
+
+  }
+
+  .share-raffle a {
+    font-size: 40px;
+    color:white;
+  }
+
+  .share-raflle a:hover {
+    opacity: 0.5;
+    color: #52758a
+  }
+
+  .raffle-default-values1 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    right: 80px;
+  }
+
+  .raffle-default-values2 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    right: 80px;
+  }
+
+  .raffle-special-value {
+    position: relative;
+    right: 55px;
+  }
+}

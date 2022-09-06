@@ -6,10 +6,12 @@
   font-weight: bold;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  width: 180px;
 }
 
 .btn-ghost:hover {
   background-color:#568FB3;
   color:black;
   opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
