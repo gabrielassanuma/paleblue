@@ -1,4 +1,5 @@
-<div class ="body">
+
+<div class="container">
     <div class="wallet">
       <div class="wallet-info text-center p-3">
         <h1><%= @user.nickname %>'s Wallet</h1>
@@ -7,7 +8,7 @@
     </div>
     <div class="balances-info">
       <div class="text-center p-3">
-        <h2>Balances</h2>
+        <h2>Token Balances</h2>
       </div>
       <div class="token-cards">
         <% @user_balances.each do |balance| %>
@@ -30,9 +31,10 @@
     <div class="tx-container">
       <div>
         <div class="tx-cards">
-          <div class="tx-card" style="background:none;padding:none;">
+          <div class="tx-card" style="background-color:#568FB3">
               <p>Global TxID</p>
               <p>Amount</p>
+              <p>Token</p>
               <p>From</p>
               <p style="text-align:right">To</p>
             </div>
@@ -40,15 +42,18 @@
         <% user_txs.sort_by!{|e| -e[:id]}  %>
             <% user_txs.each do |transaction| %>
             <div class="tx-card">
-              <p><%= transaction.id %></p>
-              <p><%= transaction.tk_amount %> - <%= transaction.token.nickname %></p>
+              <p>#<%= transaction.id %></p>
+              <p><%= transaction.tk_amount %></p>
+              <p><%= transaction.token.nickname %></p>
               <p><%= link_to transaction.from_user.nickname, account_path(transaction.from_user)%></p>
+
               <p style="text-align:right"><%= link_to transaction.to_user.nickname, account_path(transaction.to_user)%></p>
               <!--<p>Sender: <%= transaction.from_user.nickname %><%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%></p>-->
             </div>
             <% end %>
         </div>
       </div>
+    </div>
     </div>
   </div>
   </div>
