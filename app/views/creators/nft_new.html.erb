@@ -1,5 +1,7 @@
-<%= simple_form_for [@creator, @nft] do |f| %>
-  <%= f.input :name, required: true %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div style="color: white; background-color: #4d4d4d; height: 48vw; margin: auto; width: 40%; padding: 30px; border-radius: 5px;">
+  <%= simple_form_for [@creator, @nft] do |f| %>
+    <%= f.input :name, required: true %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.button :submit, class: "btn btn-ghost" %>
+  <% end %>
+</div>
