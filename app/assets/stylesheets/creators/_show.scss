@@ -1,0 +1,111 @@
+.creator-container {
+  margin: 30px 70px;
+  justify-content: start;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.creator-card {
+  background-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  display: flex;
+  padding: 50px;
+  border-radius: 15px;
+  margin-bottom: 80px;
+}
+
+#creator-top-left {
+  color: rgba(255, 255, 255, 0.8);
+  float: left;
+}
+
+#creator-photo-description {
+  display: flex;
+  min-width: 400px;
+}
+
+#creator-photo {
+  width: 100px;
+  height: 150px;
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  margin-right: 50px;
+}
+
+.description-creator {
+  font-size: 16px;
+}
+
+#about-part {
+  width: 80%;
+  float: left;
+  margin-top: 40px;
+}
+
+#about-text {
+  margin-top: 26px;
+  text-align: justify;
+}
+
+#location {
+  width: 85%;
+  float: left;
+  color:rgba(255, 255, 255, 0.8);
+}
+
+#website {
+  width: 85%;
+  float: left;
+  color:rgba(255, 255, 255, 0.8);
+  &:hover {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+#btn-create {
+  position: relative;
+  top: 30px;
+}
+
+#local-web {
+  position: relative;
+  top: 140px;
+}
+
+.links-display {
+  width: 50%;
+  float: left;
+  margin: 30px 0;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 140px;
+  }
+
+.creator-bottom-left {
+  position: relative;
+  left: 150px;
+  width: 30%;
+  background-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.tag-layout {
+  font-size: 16px;
+}
+
+#creator-between-right {
+  margin-bottom: 50px;
+}
+
+.creator-bottom-right {
+  position: relative;
+  left: 300px;
+  width: 30%;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+}

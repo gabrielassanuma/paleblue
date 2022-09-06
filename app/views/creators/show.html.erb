@@ -1,57 +1,67 @@
 <div class="container">
-  <div class="row justify-content-center" style="color:white">
-    <div  class="col-12 col-sm-4">
-      <div class="mt-5" style="text-align:center">
-        <% if @creator.photo.key  %>
-          <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path @creator.photo.key %>>
-        <% end  %>
-        <h2><%= @creator.title %></h2>
-        <p>PaleBlue ID: <%= link_to @creator.pale_blue.tk_address, token_path(@creator.pale_blue)%></p>
-        <p>Creator Since: <%= @creator.created_at %></p>
-
-        <button><%= link_to "Donate", new_creator_transaction_path(@creator)%></button>
-
-        <h3>About me:</h3>
-        <p><%= @creator.about %></p><br>
-        <p>Location: <%= @creator.location %></p>
-
-        <h3>Problem(s) I'm focused on solving:</h3>
-        <p>1. <%= @creator.q1 %></p><br>
-        <p>2. <%= @creator.q2 %></p><br>
-        <p>3. <%= @creator.q3 %></p><br>
-
-        <h3>Tags</h3>
-        <p><%= @creator.tag1 %></p>
-        <p><%= @creator.tag2 %></p>
-        <p><%= @creator.tag3 %></p>
-
-        <h3>Links</h3>
-        <p><%= @creator.facebook %></p>
-        <p><%= @creator.twitter %></p>
-        <p><%= @creator.instagram %></p>
-        <p><%= @creator.linkedin %></p>
-        <p><%= @creator.website %></p>
-        <p><%= @creator.discord %></p>
-      </div><hr>
-      <div>
-      <h2>Creator Files</h2>
-      <%  @nfts.each do |files| %>
-        <%= files.name  %>
-        <% if files.photos[0].key  %>
-          <% files.photos.each do |file|   %>
-            <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path file.key %>>
-            <% end %>
-        <% end  %>
-      <% end %>
+  <div class="row creator-container">
+    <div class="creator-card" data-aos="flip-left">
+      <div class="col-8">
+        <div id="creator-top-left">
+          <div id="creator-photo-description">
+            <div>
+              <% if @creator.photo.key  %>
+                <img id='creator-photo' src= <%= cl_image_path @creator.photo.key %>>
+              <% end %>
+            </div>
+            <div>
+              <h1><%= @creator.title %></h1>
+              <p class='description-creator'>Creator Since: <%= @creator.created_at.to_date %></p>
+            </div>
+          </div>
+          <div id='about-part'>
+            <h2>About me:</h2>
+            <p id='about-text'><%= @creator.about %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 ">
+        <div id='btn-create' data-aos="fade-up">
+          <%= link_to "Donate", new_creator_transaction_path(@creator), class: 'btn-ghost'%>
+        </div>
+        <div class='links-display'>
+          <a href=<%= @creator.instagram %>><i class="fab fa-instagram fa-lg text-light"></i></a>
+          <a href=<%= @creator.facebook %>><i class="fab fa-facebook fa-lg text-light"></i></a>
+          <a href=<%= @creator.twitter %>><i class="fab fa-twitter fa-lg text-light"></i></a>
+          <a href=<%= @creator.linkedin %>><i class="fab fa-linkedin fa-lg text-light"></i></a>
+        </div>
+        <div id='local-web'>
+          <p id='location'><i class="fa-solid fa-location-pin fa-lg text-light"></i>  <%= @creator.location %></p>
+          <a id='website' href=<%= @creator.website %>><p><%= @creator.website %></p></a>
+        </div>
+      </div>
+    </div>
+    <div class='creator-bottom-left' data-aos="fade-right">
+      <h3>Tags</h3>
+      <p class='tag-layout'>#<%= @creator.tag1 %></p>
+      <p class='tag-layout'>#<%= @creator.tag2 %></p>
+      <p class='tag-layout'>#<%= @creator.tag3 %></p>
+    </div>
+    <div class='creator-bottom-right' data-aos="fade-left">
+      <div id='creator-between-right'>
+        <h2>Creator Files</h2>
+        <% @nfts.each do |files| %>
+          <%= files.name %>
+          <% if files.photos[0].key  %>
+            <% files.photos.each do |file|   %>
+              <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path file.key %>>
+              <% end %>
+          <% end %>
+        <% end %>
       </div>
       <div>
-      <h2>Creator Raffles</h2>
-      <%  @raffles.each do |raffle| %>
-        <%= raffle.name  %>
-        <% if raffle.token.photo.key  %>
-          <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path raffle.token.photo.key %>>
-        <% end  %>
-      <% end %>
+        <h2>Creator Raffles</h2>
+        <% @raffles.each do |raffle| %>
+          <p class='description-creator'><%= raffle.name %></p>
+          <% if raffle.token.photo.key  %>
+            <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path raffle.token.photo.key %>>
+          <% end  %>
+        <% end %>
       </div>
     </div>
   </div>
