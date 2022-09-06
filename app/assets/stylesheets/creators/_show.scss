@@ -6,7 +6,7 @@
 
 .creator-card {
   background-color: rgba(255, 255, 255, 0.09);
-  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
   display: flex;
   padding: 50px;
   border-radius: 15px;
@@ -21,17 +21,21 @@
 #creator-photo-description {
   display: flex;
   min-width: 400px;
+
+  #title {
+    color: #568FB3;
+  }
 }
 
 #creator-photo {
   width: 100px;
   height: 150px;
-  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
   border-radius: 5px;
   margin-right: 50px;
 }
 
-.description-creator {
+.font-16 {
   font-size: 16px;
 }
 
@@ -87,13 +91,9 @@
   left: 150px;
   width: 30%;
   background-color: rgba(255, 255, 255, 0.09);
-  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
   border-radius: 15px;
   padding: 40px;
-}
-
-.tag-layout {
-  font-size: 16px;
 }
 
 #creator-between-right {
@@ -106,6 +106,6 @@
   width: 30%;
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.09);
-  box-shadow: 2px 2px 2px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
   border-radius: 15px;
 }
