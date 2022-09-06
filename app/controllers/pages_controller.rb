@@ -30,7 +30,10 @@ class PagesController < ApplicationController
     keys.each do |key|
       @creators << Creator.find_by(file_key: key)
     end
-    files = []
-    
+    @creators.each do |creator|
+      Nft.where(creator:).each do |record|
+        # add each file to zip file
+      end
+    end
   end
 end
