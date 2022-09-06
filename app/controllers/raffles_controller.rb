@@ -26,9 +26,28 @@ class RafflesController < ApplicationController
 
   def show
     @raffle = Raffle.find(params[:id])
+    @redeem = Transaction.new
+  end
+
+  def redeem
+    @raffle = Raffle.find(params[:id])
+    @redemption = Transaction.new(redeem_params)
+    @redemption.token = Token.fourth
+    @redemption.from_user = current_user
+    @redemption.to_user = User.third
+    if @redemption.save
+      @raffle.metadata << @redemption
+      @raffle.save
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
+
+  def redeem_params
+    params.require(:transaction).permit(:tk_amount)
+  end
 
   def raffle_params
     params.require(:raffle).permit(:name, :about, token_attributes: [:nickname, :photo])

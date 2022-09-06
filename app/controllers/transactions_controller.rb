@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
     @transaction.to_user = TkBalance.where(token_id: @creator.pale_blue).last.user
     if @transaction.save
       # send Creator File Key if user wallet doesn't currently hold it
-      file_keys if current_user.tk_balances.where(token: @creator.file_key).nil?
+      file_keys if current_user.tk_balances.where(token: @creator.file_key).empty?
       raffle_tickets if @transaction.tk_amount >= 2
       redirect_to transaction_path(@transaction), notice: "Transaction was successfully created."
     else
