@@ -1,18 +1,27 @@
 <div class="bg-img"></div>
 <div class='content-raffle'>
   <div class="m-5" style="color:white">
-    <h2 class="d-flex justify-content-center">Raffles Index</h2><br>
-    <div class="cards">
+    <h2 class="d-flex justify-content-center">Raffles</h2><br>
+    <div class="raffle-cards">
       <% @raffles.each do |raffle| %>
-        <div class="box">
-          <div class="card-content creator-index-card">
-            <h3><%= link_to raffle.name, raffle_path(raffle), style:'color: #568FB3;'%></h3>
-            <p>Tags:</p>
-            <p class='font-16'>#<%= raffle.tag1 %></p>
-            <p class='font-16'>#<%= raffle.tag2 %></p>
-            <p class='font-16'>#<%= raffle.tag3 %></p>
+        <%= link_to raffle_path(raffle) do%>
+          <div class="raffle-card">
+            <div class="raffle-info">
+              <% if raffle.token.photo.key  %>
+                <img style="max-height: 200px" src= <%= cl_image_path raffle.token.photo.key %>>
+              <% end  %>
+              <h3 style="margin:5px;"><%=raffle.name%></h3>
+              <p style="margin:5px;font-weight:100;">by <%= raffle.creator.title %></p>
+              <% unless raffle.tag1 == "" %>
+              <div class="tags d-flex">
+              <div class="tag"><%= raffle.tag1 %></div>
+              <div class="tag"><%= raffle.tag2 %></div>
+              <div class="tag"><%= raffle.tag3 %></div>
+              </div>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

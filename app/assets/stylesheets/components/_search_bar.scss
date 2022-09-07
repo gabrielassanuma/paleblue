@@ -11,6 +11,13 @@
     border: none;
   }
 
+  .input-group-text {
+    border-radius: 0px 9px 9px 0px;
+  }
+
+  .form-control {
+    border-radius: 9px 0px 0px 9px !important;
+  }
   .form-control:focus {
     box-shadow: none;
     border-color: rgba(255, 255, 255, 0.6);
