@@ -1,0 +1,45 @@
+.sign-in-container {
+  color: white;
+  width: 100%;
+  min-height: 800px;
+  position:relative;
+  padding-top:30px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.bg-img{
+    background-image: url('banner.jpg');
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    position: fixed;
+    min-height: 100vh;
+    filter: blur(9px)
+}
+
+.form-control {
+  border-radius: 9px;
+  background-color: rgba(255, 255, 255, 0.0);
+  border: 1px solid white;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.0);
+  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
+}
+
+.btn-ghost {
+  color:white;
+  background-color: #568fb3;
+  border-radius: 18px;
+  opacity: .8;
+  padding: 11px 35px;
+}
+
+.form-control:focus {
+   background-color: transparent !important;
+    color:white !important;
+}
