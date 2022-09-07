@@ -1,12 +1,13 @@
-<div class="row justify-content-center" style="color:white">
-  <div  class="col-12 col-sm-4">
+<div class="bg-img"></div>
+<div class="apply-container row justify-content-center" style="color:white">
+  <div  class="col-6 apply-form p-3">
   <h1>Apply to be a Creator</h1><br>
   <h3>What problems face your community that you want to solve?</h3><br>
   <h5> Enter up to 3:</h5>
     <%= simple_form_for @creator do |f| %>
-      <%= f.input :q1, as: :text, required: true %>
-      <%= f.input :q2, as: :text, required: false %>
-      <%= f.input :q3, as: :text, required: false %>
+      <%= f.input :q1, as: :text, required: true, label: 'Answer #1' %>
+      <%= f.input :q2, as: :text, required: false, label: 'Answer #2' %>
+      <%= f.input :q3, as: :text, required: false, label: 'Answer #3' %>
     <div class='d-flex' style='justify-content: space-between;'>
       <%= f.button :submit, 'Apply', class: 'btn btn-ghost'%>
     </div>

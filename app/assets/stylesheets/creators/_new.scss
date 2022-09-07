@@ -1,4 +1,4 @@
-.sign-in-container {
+.apply-container {
   color: white;
   width: 100%;
   position:relative;
@@ -19,6 +19,13 @@
     filter: blur(9px)
 }
 
+.apply-form {
+  background-color: rgba(255, 255, 255, 0.0);
+  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
+  border-radius: 9px;
+  color:white;
+}
+
 .form-control {
   border-radius: 9px;
   background-color: rgba(255, 255, 255, 0.0);
@@ -29,7 +36,6 @@
 .form {
   background-color: rgba(255, 255, 255, 0.0);
   box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
-  color:white;
 }
 
 .btn-ghost {
@@ -38,9 +44,4 @@
   border-radius: 18px;
   opacity: 1;
   padding: 11px 35px;
-}
-
-.form-control:focus {
-   background-color: transparent !important;
-    color:white !important;
 }
