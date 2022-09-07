@@ -1,6 +1,7 @@
-<div class="transaction-container">
-  <div>
-    <h1>Donation Details</h1>
+<div class="bg-img"></div>
+<div class="apply-container row justify-content-center" style="color:white">
+  <div  class="col-6 apply-form p-3">
+    <h1>Donation Confirmed</h1>
     <p>Transaction id: <%= @transaction.id %></p>
     <p>Sender: <%= @transaction.from_user.nickname %></p>
     <p>Sender Address: <%= link_to @transaction.from_user.wlt_address, account_path(@transaction.from_user)%></p>
@@ -8,5 +9,6 @@
     <p>Donation Address: <%= link_to @transaction.to_user.wlt_address, account_path(@transaction.to_user)%></p>
     <p>Amount: <%= @transaction.tk_amount %> <%= @transaction.token.nickname %></p>
     <p>Token Address: <%= link_to @transaction.token.tk_address, token_path(@transaction.token)%></p>
+
   </div>
 </div>

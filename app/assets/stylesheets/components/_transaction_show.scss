@@ -1,0 +1,20 @@
+.apply-container {
+  color: white;
+  width: 100%;
+  position:relative;
+  padding-top:30px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.bg-img{
+  background-image: url('banner.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  position: fixed;
+  min-height: 100vh;
+  filter: blur(9px)
+}
