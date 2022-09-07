@@ -1,4 +1,4 @@
-.sign-in-container {
+.download-container {
   color: white;
   width: 100%;
   position:relative;
@@ -19,28 +19,9 @@
     filter: blur(9px)
 }
 
-.form-control {
-  border-radius: 9px;
-  background-color: rgba(255, 255, 255, 0.0);
-  border: 1px solid white;
-  color: white !important;
-}
-
-.form {
+.downloads {
   background-color: rgba(255, 255, 255, 0.0);
   box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
+  border-radius: 9px;
   color:white;
-}
-
-.btn-ghost {
-  color:white;
-  background-color: #568fb3;
-  border-radius: 18px;
-  opacity: 1;
-  padding: 11px 35px;
-}
-
-.form-control:focus {
-   background-color: transparent !important;
-    color:white !important;
 }

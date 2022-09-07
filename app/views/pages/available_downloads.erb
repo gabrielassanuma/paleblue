@@ -1,7 +1,10 @@
-<div style="color:white; margin: 60px">
-  <h1> <strong>Available Downloads:</strong></h1>
+<div class="bg-img"></div>
+<div class="download-container">
+  <div class="downloads p-3">
+  <h1>Available Downloads:</h1>
   <% @creators.each do |creator| %>
     <p>Creator: <%= creator.title %></p>
     <p>Example zipfiles for each creator file key</p>
   <% end  %>
+  </div>
 </div>
