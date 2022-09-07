@@ -1,6 +1,6 @@
-.btn-ghost {
-  color: #568FB3;
-  border: 2px solid #568FB3;
+.btn-ghost-inverted {
+  color: white;
+  border: 2px solid white;
   padding: 16px 50px 20px;
   border-radius: 20px;
   font-weight: bold;
@@ -9,9 +9,9 @@
   width: 180px;
 }
 
-.btn-ghost:hover {
+.btn-ghost-inverted:hover {
   background-color:#568FB3;
-  color:black;
+  color:white;
   opacity: 1;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  border: 0.5px solid #568FB3;
 }
