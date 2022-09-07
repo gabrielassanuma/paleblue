@@ -1,7 +1,17 @@
+.bg-img{
+  background-image: url('banner.jpg');
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    position: fixed;
+    min-height: 100vh;
+    filter: blur(9px)
+}
+
 .raffle-show {
   color: white;
-  background-color: #171717;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
   height: 48vw;
   margin: 3px 80px;
   padding: 30px;
