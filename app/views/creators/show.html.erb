@@ -60,7 +60,7 @@
       <div class='scrollmenu'>
         <% @raffles.each do |raffle| %>
           <div class='file-raffle-card'>
-            <p class='font-16'><%= link_to raffle.name, raffle_path %></p>
+            <p class='font-16'><%= link_to raffle.name, raffle_path(raffle) %></p>
             <hr>
             <% if raffle.token.photo.key  %>
               <img src= <%= cl_image_path raffle.token.photo.key %>>
