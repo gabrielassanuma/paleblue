@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class='creator-bottom-left' data-aos="fade-right">
-      <h3>Tags</h3>
+      <h3>Tags</h3> 
       <p class='font-16'>#<%= @creator.tag1 %></p>
       <p class='font-16'>#<%= @creator.tag2 %></p>
       <p class='font-16'>#<%= @creator.tag3 %></p>
@@ -57,7 +57,7 @@
       <div>
         <h2>Creator Raffles</h2>
         <% @raffles.each do |raffle| %>
-          <p class='font-16'><%= raffle.name %></p>
+          <p class='font-16'><%= link_to raffle.name, raffle_path %></p>
           <% if raffle.token.photo.key  %>
             <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path raffle.token.photo.key %>>
           <% end  %>
