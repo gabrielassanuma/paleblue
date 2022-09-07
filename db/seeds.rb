@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 require 'securerandom'
+require "open-uri"
 
 puts 'Starting Seeds...'
 puts 'Destroying users table'
@@ -68,6 +69,8 @@ raffle_item = Token.new(
   nickname: 'Raffle Item',
   user: User.fifth
 )
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/7/76/Tahiti%2C_French_Polynesia_-_NASA_Earth_Observatory.jpg')
+raffle_item.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 raffle_item.save!
 
 raffle_item_balance = TkBalance.new(
@@ -224,6 +227,9 @@ creator = Creator.new(
   pale_blue: Token.first,
   file_key: Token.third
 )
+
+file = URI.open('https://www.fijiresort.com/wp-content/uploads/2018/04/jean-cousteau-michel-diving-2-e1522826162279.jpg')
+creator.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 creator.save!
 puts 'creator done'
 
