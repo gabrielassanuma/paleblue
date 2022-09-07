@@ -2,113 +2,133 @@
   margin: 30px 70px;
   justify-content: start;
   color: rgba(255, 255, 255, 0.8);
-}
 
-.creator-card {
+  .links-display {
+    width: 50%;
+    float: left;
+    margin: 30px 0;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 140px;
+    }
+
+  .creator-card {
   background-color: rgba(255, 255, 255, 0.09);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
   display: flex;
   padding: 50px;
   border-radius: 15px;
   margin-bottom: 80px;
-}
-
-#creator-top-left {
-  color: rgba(255, 255, 255, 0.8);
-  float: left;
-}
-
-#creator-photo-description {
-  display: flex;
-  min-width: 400px;
-
-  #title {
-    color: #568FB3;
   }
-}
 
-#creator-photo {
-  width: 100px;
-  height: 150px;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
-  border-radius: 5px;
-  margin-right: 50px;
-}
+  #creator-top-left {
+    color: rgba(255, 255, 255, 0.8);
+    float: left;
+  }
 
-.font-16 {
-  font-size: 16px;
-  a {
-    color:rgba(255, 255, 255, 0.8);
-    &:hover {
-      color:rgba(255, 255, 255, 0.4);
+  #creator-photo-description {
+    display: flex;
+    min-width: 400px;
+
+    #title {
+      color: #568FB3;
     }
   }
-}
 
-#about-part {
-  width: 80%;
-  float: left;
-  margin-top: 40px;
-}
-
-#about-text {
-  margin-top: 26px;
-  text-align: justify;
-}
-
-#location {
-  width: 85%;
-  float: left;
-  color:rgba(255, 255, 255, 0.8);
-}
-
-#website {
-  width: 85%;
-  float: left;
-  color:rgba(255, 255, 255, 0.8);
-  &:hover {
-    color: rgba(255, 255, 255, 0.4);
-  }
-}
-
-#btn-create {
-  position: relative;
-  top: 30px;
-}
-
-#local-web {
-  position: relative;
-  top: 140px;
-}
-
-.links-display {
-  width: 50%;
-  float: left;
-  margin: 30px 0;
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  top: 140px;
+  #creator-photo {
+    width: 100px;
+    height: 150px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    margin-right: 50px;
   }
 
-.creator-bottom-left {
-  width: 30%;
-  background-color: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
-  border-radius: 15px;
-  padding: 40px;
-}
+  .font-16 {
+    font-size: 16px;
+    a {
+      color:rgba(255, 255, 255, 0.8);
+      &:hover {
+        color:rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
 
-#creator-between-right {
-  margin-bottom: 50px;
-}
+  #about-part {
+    width: 80%;
+    float: left;
+    margin-top: 40px;
+  }
 
-.creator-bottom-right {
-  margin-left: 115px;
-  width: 60%;
-  padding: 40px;
-  background-color: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
-  border-radius: 15px;
+  #about-text {
+    margin-top: 26px;
+    text-align: justify;
+  }
+
+  #btn-create {
+    position: relative;
+    top: 30px;
+  }
+
+  #local-web {
+    position: relative;
+    top: 140px;
+
+    .location {
+      width: 85%;
+      float: left;
+      color:rgba(255, 255, 255, 0.8);
+      margin-bottom: 10px;
+    }
+
+    #website {
+      width: 85%;
+      float: left;
+      color:rgba(255, 255, 255, 0.8);
+      margin-bottom: 15px;
+      &:hover {
+        color: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+
+  #creator-bottom-files {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    margin-bottom: 100px;
+  }
+
+  #creator-bottom-raffles {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+  }
+
+  div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+  }
+
+  .file-raffle-card {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    display: inline-block;
+    margin: 50px;
+    padding: 30px;
+    img {
+      height: 240px;
+      width: 240px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+  }
+
 }
