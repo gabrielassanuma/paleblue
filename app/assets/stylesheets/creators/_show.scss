@@ -37,6 +37,12 @@
 
 .font-16 {
   font-size: 16px;
+  a {
+    color:rgba(255, 255, 255, 0.8);
+    &:hover {
+      color:rgba(255, 255, 255, 0.4);
+    }
+  }
 }
 
 #about-part {
@@ -87,8 +93,6 @@
   }
 
 .creator-bottom-left {
-  position: relative;
-  left: 150px;
   width: 30%;
   background-color: rgba(255, 255, 255, 0.09);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
@@ -101,9 +105,8 @@
 }
 
 .creator-bottom-right {
-  position: relative;
-  left: 300px;
-  width: 30%;
+  margin-left: 115px;
+  width: 60%;
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.09);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
