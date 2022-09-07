@@ -1,7 +1,7 @@
-
+<div class="bg-img"></div>
 <div class="container">
     <div class="wallet">
-      <div class="wallet-info text-center p-3">
+      <div class="wallet-info text-center p-3"  style="background:black">
         <h1><%= @user.nickname %>'s Wallet</h1>
         <h3>address: <%= @user.wlt_address %></h3>
       </div>
@@ -12,12 +12,14 @@
       </div>
       <div class="token-cards">
         <% @user_balances.each do |balance| %>
+          <%= link_to  token_path(balance.token), style:"color:white" do%>
           <div class="token-card">
-          <%= link_to balance.token.nickname, token_path(balance.token), class:"text-decoration-none"%>
             <div class="token-info">
-            <p>Balance: <%= balance.tk_amount %></p>
+              <p><%=balance.token.nickname %></p>
+              <p>Balance: <%= balance.tk_amount %></p>
             </div>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -45,9 +47,9 @@
               <p>#<%= transaction.id %></p>
               <p><%= transaction.tk_amount %></p>
               <p><%= transaction.token.nickname %></p>
-              <p><%= link_to transaction.from_user.nickname, account_path(transaction.from_user)%></p>
+              <p><%= link_to transaction.from_user.nickname, account_path(transaction.from_user), style: "color:white"%></p>
 
-              <p style="text-align:right"><%= link_to transaction.to_user.nickname, account_path(transaction.to_user)%></p>
+              <p style="text-align:right"><%= link_to transaction.to_user.nickname, account_path(transaction.to_user), style: "color:white"%></p>
               <!--<p>Sender: <%= transaction.from_user.nickname %><%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%></p>-->
             </div>
             <% end %>

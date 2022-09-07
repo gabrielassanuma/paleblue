@@ -1,15 +1,27 @@
-.page-container {
-  background-color: white;
-}
-body {
-  color:white;
+.container {
+  color: white;
   width: 100%;
-  height: 800px;
-  background-image: url("banner.jpeg");
-  background-position: center top;
-	background-size: cover;
-
+  min-height: 800px;
+  position:relative
 }
+
+.bg-img{
+  background-image: url('banner.jpg');
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    position: fixed;
+    min-height: 100vh;
+    filter: blur(9px)
+}
+
+.wallet {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 .token-cards {
   flex-grow: 1;
   display: grid;
@@ -26,34 +38,6 @@ body {
   background-color: black;
   padding: 15px;
   border-radius: 3px;
-}
-
-h1 {
-  font-family: 'Poppins';
-  font-size: 40px;
-}
-
-h2, h3 {
-  font-family: 'Poppins';
-  font-weight: 300;
-}
-
-.wallet {
-  display: flex;
-  justify-content: center;
-}
-
-.wallet-info, .balances-info, .transactions-info {
-  background-color: #171717;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
-  border-radius: 9px;
-  text-overflow: ellipsis;
-  padding: 5px;
-  margin: 15px;
-}
-
-.wallet-info {
-  width: 55%;
 }
 
 .tx-cards {
@@ -77,8 +61,29 @@ h2, h3 {
   border-radius: 9px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   border: 0.1px solid white;
+}
+
+h1 {
+  font-family: 'Poppins';
+  font-size: 40px;
+}
+
+h2, h3 {
+  font-family: 'Poppins';
+  font-weight: 300;
+}
+
+.wallet-info, .balances-info, .transactions-info {
+  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
+  border-radius: 9px;
+  text-overflow: ellipsis;
+  padding: 5px;
+  margin-bottom: 50px;
+}
+
+.wallet-info {
+  width: 55%;
 }
 
 p{
