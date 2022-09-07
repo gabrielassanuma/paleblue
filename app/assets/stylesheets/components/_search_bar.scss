@@ -1,15 +1,19 @@
-.searchbar {
-  max-width: 320px;
+.searchbar-container {
+  margin-left: 70px;
 
-}
+  .searchbar {
+    max-width: 320px;
+  }
 
-.searchbar_btn {
-  width: 30px;
-  height: 35px;
-  border: none;
-}
+  .searchbar_btn {
+    width: 30px;
+    height: 25px;
+    border: none;
+  }
 
-.form-control:focus {
-  box-shadow: none;
-  border-color: rgba(255, 255, 255, 0.6);
+  .form-control:focus {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
 }
