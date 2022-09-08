@@ -36,8 +36,12 @@
     padding: 20px 0 0;
   }
 
-  input {
+  .tabbies{
     display: none;
+  }
+
+  input .token-amount {
+    display:block;
   }
 
   label {

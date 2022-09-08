@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     resources :transactions, only: ['new', 'create']
     resources :raffles, only: ['new', 'create']
   end
-
-  post 'creators/:id/raffles/:id/donation', to: 'raffles#donation', as: :creator_transaction
   post '/raffles/:id/redeem', to: 'raffles#redeem', as: :raffle_transactions
   get '/available_downloads', to: 'pages#available_downloads', as: :available_downloads
   resources :transactions, only: ['new', 'create', 'index', 'show']
