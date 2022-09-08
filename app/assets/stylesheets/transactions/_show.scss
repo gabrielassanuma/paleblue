@@ -13,3 +13,19 @@
   display: flex;
   flex-direction: column;
 }
+
+.new-container {
+  color: white;
+  width: 100%;
+  min-height: 83vh;
+  position:relative;
+  margin-top: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.form-select {
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 10px;
+  border-radius: 9px;
+  color:white;
+}
