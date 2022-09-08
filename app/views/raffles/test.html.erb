@@ -1,0 +1,24 @@
+
+
+      <div class="simple-form-raffle">
+      <%= simple_form_for [@raffle, @redeem] do |f| %>
+      <div class="raffle-default-values">
+        <div class="raffle-default-values1" >
+          <%= f.button :submit, ' 5,00 €', class: 'btn btn-ghost', style: 'margin: 0 15px' %>
+          <%= f.button :submit, '10,00 €', class: 'btn btn-ghost', style: 'margin: 0 15px' %>
+        </div>
+        <div class="raffle-default-values2">
+          <%= f.button :submit, '15,00 €', class: 'btn btn-ghost', style: 'margin: 15px' %>
+          <%= f.button :submit, '20,00 €', class: 'btn btn-ghost', style: 'margin: 15px' %>
+        </div>
+      </div>
+        <div class="raffle-special-value">
+          <%= f.input :tk_amount, class: 'border-form-raffle'%>
+          <%= f.button :submit, 'Donate', class: 'btn btn-ghost' %>
+        </div>
+      <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

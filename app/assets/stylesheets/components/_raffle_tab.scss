@@ -27,17 +27,13 @@
   }
 
   main {
-    width: 800px;
-
     padding: 22px;
     margin: 0 auto;
-    background: black;
   }
 
   section {
     display: none;
     padding: 20px 0 0;
-    border-top: 1px solid #ddd;
   }
 
   input {
@@ -55,7 +51,7 @@
   }
 
   label:before {
-    font-family: fontawesome;
+    font-family:fontawesome;
     font-weight: normal;
     margin-right: 10px;
   }
@@ -83,9 +79,9 @@
 
   input:checked + label {
     color: #52758a;
-    border: 1px solid #ddd;
-    border-top: 2px solid #52758a;
-    border-bottom: 1px solid black;
+    //border: 1px solid #ddd;
+    //border-top: 2px solid #52758a;
+    //border-bottom: 1px solid black;
   }
 
   #tab1:checked ~ #content1,
