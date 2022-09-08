@@ -25,7 +25,12 @@ class TransactionsController < ApplicationController
       # send Creator File Key if user wallet doesn't currently hold it
       file_keys if current_user.tk_balances.where(token: @creator.file_key).empty?
       raffle_tickets if @transaction.tk_amount >= 2
-      redirect_to transaction_path(@transaction), notice: "Transaction was successfully created."
+      if params[:transaction][:raffle]
+        @raffle = Raffle.find(params[:transaction][:raffle])
+        redirect_to @raffle, notice: "Transaction was successfully created." and return
+      else
+        redirect_to @transaction, notice: "Transaction was successfully created." and return
+      end
     else
       render :new, status: :unprocessable_entity
     end

@@ -3,31 +3,32 @@
     <div class="heading-container text-center p-3"  style="background-color: rgba(0,0,0, 0.65); position: relative; top: 20px;">
         <h1><%= @raffle.name %></h1>
     </div>
-    <div class="d-flex raffle-conatiner">
-      <div class="md:w-1/3 raffle-img">
-        <% if @raffle.token.photo.key  %>
-          <img style="border-radius: 18px;" src= <%= cl_image_path @raffle.token.photo.key %>>
-        <% end  %>
-          <!--<div class="redeem-ticket">
-            <%= simple_form_for [@raffle, @redeem] do |f| %>
-            <div class='d-flex' style='justify-content: space-between;'>
-            <%= f.input :tk_amount, label: 'How many tickets?' %>
-              <%= f.button :submit, 'Redeem Raffle Tickets', class: 'btn btn-ghost' %>
-            </div>
-            <% end %>
-          </div>-->
+    <div class="d-flex raffle-container">
+      <div class="md:w-1/3 d-flex">
+        <div class="raffle-img">
+          <% if @raffle.token.photo.key  %>
+            <img style="border-radius: 18px;" src= <%= cl_image_path @raffle.token.photo.key %>>
+          <% end  %>
+        </div>
+        <div class="redeem-ticket">
+          <%= simple_form_for [@raffle, @redeem] do |f| %>
+          <%= f.input :tk_amount, label: 'How many tickets?' %>
+            <%= f.button :submit, 'Redeem', class: 'btn btn-ghost' %>
+          <% end %>
+          <p><br>Your ticket balance: <%= @raffle_tickets_bal %></p>
+        </div>
       </div>
       <div class="md:w-2/3 raffle-information">
         <p>Created at: <%= @raffle.created_at %></p>
         <div class="raffle-tab">
           <main>
-            <input checked id="tab1" type="radio" name="tabs">
+            <input checked class="tabbies" id="tab1" type="radio" name="tabs">
             <label for="tab1">Raffle details</label>
 
-            <input id="tab2" type="radio" name="tabs">
+            <input class="tabbies" id="tab2" type="radio" name="tabs">
             <label for="tab2">Donate</label>
 
-            <input id="tab3" type="radio" name="tabs">
+            <input class="tabbies" id="tab3" type="radio" name="tabs">
             <label for="tab3">Transactions</label>
 
             <section id="content1">
@@ -37,21 +38,39 @@
             </section>
 
             <section id="content2">
-
-            <%= simple_form_for [@raffle, @donation] do |f| %>
+            <div>
+            <p>Make a donation to this creator!</p>
+            <%= simple_form_for [@creator, @donation] do |f| %>
+                  <%= f.hidden_field :raffle, value: @raffle.id, as: :hidden %>
                   <%= f.input :tk_amount, html: { class: "token-amount"} %>
                   <%= f.association :token,
                             collection: @user_tokens,
                             label_method: :nickname %>
-                  <div class='d-flex' style='justify-content: space-between;'>
                     <%= f.button :submit, 'Donate', class: 'btn btn-ghost' %>
-                  </div>
               <% end %>
+              <br><p>*Donation minimums*</p>
+              <p>2 SOL : 1 Raffle Ticket <br>6 SOL : 2 Raffle Tickets<br>10 SOL : 3 Raffle Tickets</p>
+              </div>
             </section>
 
             <section id="content3">
-              <p>Raffle item: <%= @raffle.token.nickname %></p>
-              <p>Item address: <%= link_to @raffle.token.tk_address, token_path(@raffle.token)%></p>
+
+
+              <p>For creator: <%= @raffle.creator.title %></p>
+              <div class="tx-cards">
+              <% @creator_transactions.sort_by!{|e| -e[:id]}  %>
+              <% @creator_transactions.each do |transaction| %>
+              <div class="tx-card">
+              <p>#<%= transaction.id %></p>
+              <p><%= transaction.tk_amount %></p>
+              <p><%= transaction.token.nickname %></p>
+              <p><%= link_to transaction.from_user.nickname, account_path(transaction.from_user), style: "color:white"%></p>
+              <p style="text-align:right"><%= link_to transaction.to_user.nickname, account_path(transaction.to_user), style: "color:white"%></p>
+              <!--<p>Sender: <%= transaction.from_user.nickname %><%= link_to transaction.from_user.wlt_address, account_path(transaction.from_user)%></p>-->
+            </div>
+            <% end %>
+            </div>
+
             </section>
           </main></div><hr>
 
