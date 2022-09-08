@@ -11,8 +11,21 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
     @creator = Creator.find(params[:creator_id])
     @user_tokens = []
+    donation_tokens = [
+      'Solana',
+      'ETH',
+      'BTC',
+      'USDT',
+      'USDC',
+      'DOGE (;',
+      'BNB',
+      'BUSD',
+      'ATOM'
+    ]
     TkBalance.where(user: current_user).each do |transaction|
-      @user_tokens << transaction.token if transaction.token.nickname == 'SOL'
+      donation_tokens.size.times do |index|
+        @user_tokens << transaction.token if transaction.token.nickname == donation_tokens[index]
+      end
     end
   end
 
