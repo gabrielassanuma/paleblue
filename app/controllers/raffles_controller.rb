@@ -34,10 +34,23 @@ class RafflesController < ApplicationController
       @creator_transactions << transaction
     end
     @user_tokens = []
+    donation_tokens = [
+      'Solana',
+      'ETH',
+      'BTC',
+      'USDT',
+      'USDC',
+      'DOGE (;',
+      'BNB',
+      'BUSD',
+      'ATOM'
+    ]
     @raffle_tickets_bal = 0
-    TkBalance.where(user: current_user).each do |balance|
-      @user_tokens << balance.token if balance.token.nickname == 'SOL'
-      @raffle_tickets_bal = balance.tk_amount if balance.token.nickname == 'Raffle Ticket'
+    TkBalance.where(user: current_user).each do |transaction|
+      @raffle_tickets_bal = transaction.tk_amount if transaction.token.nickname == 'Raffle Ticket'
+      donation_tokens.size.times do |index|
+        @user_tokens << transaction.token if transaction.token.nickname == donation_tokens[index]
+      end
     end
   end
 
