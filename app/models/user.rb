@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :wlt_address, uniqueness: true
   after_validation :generate_hash, on: :create
-  after_commit :send_tokens
+  after_create :send_tokens
   has_many :transactions_to, foreign_key: :to_user, class_name: 'Transaction', dependent: :destroy
   has_many :transactions_from, foreign_key: :from_user, class_name: 'Transaction', dependent: :destroy
   has_many :tk_balances, foreign_key: :user, class_name: 'TkBalance', dependent: :destroy
@@ -20,22 +20,42 @@ class User < ApplicationRecord
   end
 
   def send_tokens
-    generator_sol_balance = User.fourth.tk_balances.find_by(token: Token.fifth)
-    generator_sol_balance.tk_amount += 30
-    generator_sol_balance.save
+    donation_tokens = [
+      'SOL',
+      'ETH',
+      'BTC',
+      'USDT',
+      'USDC',
+      'DOGE (;',
+      'BNB',
+      'BUSD',
+      'ATOM'
+    ]
 
-    TkBalance.create(
-      tk_amount: 0,
-      token: Token.fifth,
-      user: self
-    )
+    9.times do |index|
+      # Seed / Deposit Site Wallet
+      this_balance = TkBalance.where(user: User.fourth).where(token: Token.find(index + 5)).first
+      this_balance.tk_amount += 36
+      this_balance.save
 
-    Transaction.create(
-      tk_amount: 30,
-      token: Token.fifth,
-      from_user: User.fourth,
-      to_user: self
-    )
+      this_item = Token.find(index + 5)
+      this_item.minted_so_far += 36
+      this_item.save
+
+      # Fund User
+      TkBalance.create(
+        token: Token.find(index + 5),
+        user: self
+      )
+
+      # Send
+      Transaction.create(
+        tk_amount: 36,
+        token: Token.find(index + 5),
+        from_user: User.fourth,
+        to_user: self
+      )
+    end
   end
 
   def creator

@@ -47,6 +47,7 @@ puts "Users done"
 puts 'Generate tokens and balances...'
 
 # Pale Blue ID
+# Token.first
 pale_blue_id = Token.new(
   nickname: 'PaleBlue ID #1',
   user: User.first
@@ -65,6 +66,7 @@ token.minted_so_far += 1 if pale_blue_id.minted_so_far < pale_blue_id.max_mint
 token.save!
 
 # Raffle item
+# Token.second
 raffle_item = Token.new(
   nickname: 'Raffle Item',
   user: User.fifth
@@ -85,6 +87,7 @@ token.minted_so_far += 1 if raffle_item.minted_so_far < raffle_item.max_mint
 token.save!
 
 # Creator File Key
+# Token.third
 creator_file_key = Token.new(
   nickname: 'Creator File Key',
   user: User.fifth,
@@ -104,6 +107,7 @@ token.minted_so_far += 1
 token.save!
 
 # Raffle Ticket
+# Token.fourth
 raffle_ticket = Token.new(
   nickname: 'Raffle Ticket',
   user: User.third,
@@ -122,27 +126,41 @@ token = Token.fourth
 token.minted_so_far += 1
 token.save!
 
-# Sol Token
-sol_token = Token.new(
-  nickname: 'SOL',
-  user: User.fourth,
-  unlimited: true
-)
-sol_token.save!
+# Donation Tokens
+donation_tokens = [
+  'SOL',
+  'ETH',
+  'BTC',
+  'USDT',
+  'USDC',
+  'DOGE ;)',
+  'BNB',
+  'BUSD',
+  'ATOM'
+]
+# Token.fifth
+donation_tokens.size.times do |index|
+  Token.create!(
+    nickname: donation_tokens[index],
+    user: User.fourth,
+    unlimited: true
+  )
 
-sol_token_balance = TkBalance.new(
-  tk_amount: sol_token.max_mint,
-  token: sol_token,
-  user: User.fourth
-)
-sol_token_balance.save!
+  TkBalance.create!(
+    tk_amount: 0,
+    token: Token.find(index + 5),
+    user: User.fourth
+  )
 
-sol_token_balance.tk_amount = 50
-sol_token_balance.save!
-
-token = Token.last
-token.minted_so_far += 50
-token.save!
+  TkBalance.create!(
+    tk_amount: Token.find(index + 5).max_mint,
+    token: Token.last,
+    user: User.fifth
+  )
+  token = Token.find(index + 5)
+  token.minted_so_far += 1
+  token.save!
+end
 
 creator_pale_blue_id_balance = TkBalance.new(
   token: pale_blue_id,
@@ -155,26 +173,6 @@ transaction_new = Transaction.new(
   token: Token.first,
   from_user: User.first,
   to_user: User.fifth
-)
-transaction_new.save!
-
-creator_token_balance = TkBalance.new(
-  token: sol_token,
-  user: User.fifth
-)
-creator_token_balance.save!
-
-appreciator_token_balance = TkBalance.new(
-  token: sol_token,
-  user: User.last
-)
-appreciator_token_balance.save!
-
-transaction_new = Transaction.new(
-  tk_amount: 30,
-  token: Token.last,
-  from_user: User.fourth,
-  to_user: User.last
 )
 transaction_new.save!
 
