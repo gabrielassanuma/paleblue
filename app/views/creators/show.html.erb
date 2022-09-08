@@ -31,36 +31,41 @@
           <a href=<%= @creator.linkedin %>><i class="fab fa-linkedin fa-lg text-light"></i></a>
         </div>
         <div id='local-web'>
-          <p id='location'><i class="fa-solid fa-location-pin fa-lg text-light"></i>  <%= @creator.location %></p>
+          <p class='location'><i class="fa-solid fa-location-pin fa-lg text-light"></i>  <%= @creator.location %></p>
           <a id='website' href=<%= @creator.website %>><p><%= @creator.website %></p></a>
+          <h3 class='location'>Tags</h3>
+          <p class='font-16 location'>#<%= @creator.tag1 %></p>
+          <p class='font-16 location'>#<%= @creator.tag2 %></p>
+          <p class='font-16 location'>#<%= @creator.tag3 %></p>
         </div>
       </div>
     </div>
-    <div class='creator-bottom-left' data-aos="fade-right">
-      <h3>Tags</h3> 
-      <p class='font-16'>#<%= @creator.tag1 %></p>
-      <p class='font-16'>#<%= @creator.tag2 %></p>
-      <p class='font-16'>#<%= @creator.tag3 %></p>
-    </div>
-    <div class='creator-bottom-right' data-aos="fade-left">
-      <div id='creator-between-right'>
-        <h2>Creator Files</h2>
-        <% @nfts.each do |files| %>
-          <%= files.name %>
+
+    <div id='creator-bottom-files' data-aos="fade-left">
+      <h2>Creator Files</h2>
+      <% @nfts.each do |files| %>
+        <div class='file-raffle-card'>
+          <p class='font-16'><%= files.name %></p>
+          <hr>
           <% if files.photos[0].key  %>
-            <% files.photos.each do |file|   %>
-              <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path file.key %>>
+            <% files.photos.each do |file| %>
+              <img src= <%= cl_image_path file.key %>>
               <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div>
-        <h2>Creator Raffles</h2>
+        </div>
+      <% end %>
+    </div>
+    <div id='creator-bottom-raffles' data-aos="fade-right">
+      <h2>Creator Raffles</h2>
+      <div class='scrollmenu'>
         <% @raffles.each do |raffle| %>
-          <p class='font-16'><%= link_to raffle.name, raffle_path %></p>
-          <% if raffle.token.photo.key  %>
-            <img style='box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.6);' src= <%= cl_image_path raffle.token.photo.key %>>
-          <% end  %>
+          <div class='file-raffle-card'>
+            <p class='font-16'><%= link_to raffle.name, raffle_path(raffle) %></p>
+            <hr>
+            <% if raffle.token.photo.key  %>
+              <img src= <%= cl_image_path raffle.token.photo.key %>>
+            <% end  %>
+          </div>
         <% end %>
       </div>
     </div>
