@@ -29,9 +29,15 @@ class RafflesController < ApplicationController
     @redeem = Transaction.new
     @creator = @raffle.creator
     @donation = Transaction.new
+    @creator_transactions = []
+    Transaction.where(to_user: @creator.file_key.user).each do |transaction|
+      @creator_transactions << transaction
+    end
     @user_tokens = []
-    TkBalance.where(user: current_user).each do |transaction|
-      @user_tokens << transaction.token if transaction.token.nickname == 'SOL'
+    @raffle_tickets_bal = 0
+    TkBalance.where(user: current_user).each do |balance|
+      @user_tokens << balance.token if balance.token.nickname == 'SOL'
+      @raffle_tickets_bal = balance.tk_amount if balance.token.nickname == 'Raffle Ticket'
     end
   end
 

@@ -9,6 +9,19 @@
     filter: blur(9px)
 }
 
+.form-label {
+  margin-top: 15px;
+  padding: 10px;
+}
+.form-control{
+  //width:30%;
+  padding: 10px;
+}
+.form-select {
+  background-color: rgba(0,0,0, 0.65);
+  padding:10px;
+  //width: 30%;
+}
 .heading-container {
   background-color: rgba(0,0,0, 0.45);
 }
@@ -39,6 +52,11 @@
 .md\:w-1\/3 {
     width: 33.333333%!important;
     margin-right: 2rem!important;
+    input {
+      width: 50%;
+    }
+    align-content: center;
+    flex-direction: column;
 }}
 
 .raffle-show {
@@ -88,7 +106,6 @@
   }
 
   .share-raffle a:hover {
-    opacity: 0.5;
     color: #568FB3
   }
 
@@ -110,4 +127,28 @@
     position: relative;
     right: 55px;
   }
+}
+
+.tx-cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+}
+.tx-card {
+  display: grid;
+  width: 100%;
+  flex-direction: row;
+  text-align: left;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  border: none;
+  background-color: rgba(0,0,0, 0.2);
+  padding: 15px;
+  border-radius: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid rgba(255,255,255, 0.2);
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
 }
