@@ -1,14 +1,24 @@
 <div class="bg-img"></div>
-<div class="apply-container row justify-content-center" style="color:white">
-  <div  class="col-6 apply-form p-3">
-    <h1>Donation Confirmed</h1>
-    <p>Transaction id: <%= @transaction.id %></p>
-    <p>Sender: <%= @transaction.from_user.nickname %></p>
-    <p>Sender Address: <%= link_to @transaction.from_user.wlt_address, account_path(@transaction.from_user)%></p>
-    <p>Donation to: <%= @transaction.to_user.nickname %></p>
-    <p>Donation Address: <%= link_to @transaction.to_user.wlt_address, account_path(@transaction.to_user)%></p>
-    <p>Amount: <%= @transaction.tk_amount %> <%= @transaction.token.nickname %></p>
-    <p>Token Address: <%= link_to @transaction.token.tk_address, token_path(@transaction.token)%></p>
-
+  <div class="account-container" style="color:white;margin-top:60px;font-family:'Poppins';text-align: center;">
+    <div class="wallet" style="background-color: rgba(0,0,0, 0.65);">
+      <div class="wallet-info text-center p-3"  style="box-shadow:none;">
+        <h1>Donation Confirmation for </h1>
+        <p>Global TxID: <%= @transaction.id %></p>
+      </div>
+    </div>
+    <div class="transact" style="margin-top:70px;">
+      <h3>Thank you for your donation!!</h3>
+      <h5>Save this receipt for your records</h5>
+      <br><p>Amount: <%= @transaction.tk_amount %> <%= @transaction.token.nickname %></p>
+      <p>Token Address: <%= link_to @transaction.token.tk_address, token_path(@transaction.token)%></p><br>
+      <div class="sender">
+        <p>Sender: <%= @transaction.from_user.nickname %></p>
+        <p>Sender Address: <%= link_to @transaction.from_user.wlt_address, account_path(@transaction.from_user)%></p><br>
+      </div>
+      <div class="receive">
+        <p>Donation to: <%= @transaction.to_user.nickname %></p>
+        <p>Donation Address: <%= link_to @transaction.to_user.wlt_address, account_path(@transaction.to_user)%></p>
+      </div>
+    </div>
   </div>
 </div>
