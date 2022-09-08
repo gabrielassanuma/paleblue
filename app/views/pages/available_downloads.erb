@@ -1,10 +1,19 @@
 <div class="bg-img"></div>
 <div class="download-container">
-  <div class="downloads p-3">
-  <h1>Available Downloads:</h1>
-  <% @creators.each do |creator| %>
-    <p>Creator: <%= creator.title %></p>
-    <p>Example zipfiles for each creator file key</p>
-  <% end  %>
+  <div class="heading-container text-center p-3"  style="background:black">
+    <h1>Available Downloads:</h1>
+  </div>
+  <div class="files-info text-center p-3">
+      <% if @creators.size > 0 %>
+      <% @creators.each do |creator| %>
+        <p>Creator: <%= creator.title %></p>
+        <p>< file download link shows here ></p>
+        <%end%>
+      <% else %>
+        <p>No files yet!</p>
+        <p>Donate to a Creator to receive their File Key.</p>
+        <p>Then their files will display here...</p>
+      <% end %>
+    </div>
   </div>
 </div>

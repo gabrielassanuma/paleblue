@@ -11,12 +11,13 @@
 
 .raffle-show {
   color: white;
-  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
-  height: 48vw;
-  margin: 3px 80px;
-  padding: 30px;
-  border-radius: 5px;
-  display: flex;
+  width: 100%;
+  min-height: 80vh;
+  position:relative;
+  margin-top: 100px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
 
   .raffle-show-l {
     display: flex;
