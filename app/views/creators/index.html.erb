@@ -1,19 +1,32 @@
 <div class="bg-img"></div>
 <div class='content-creator'>
-  <div class="m-5" style="color:white">
-    <h2 class="d-flex justify-content-center">Creators Index</h2><br>
-    <div class="cards">
+  <div class="heading-container text-center p-3"  style="background-color: rgba(0,0,0, 0.65);">
+    <h1>Creators</h1>
+  </div>
+  <div class="" style="color:white">
+    <div class="creator-cards">
       <% @creators.each do |creator| %>
-        <div class="box">
-          <div class="card-content creator-index-card">
-            <h3><%= link_to creator.title, creator_path(creator) %></h3>
-            <p><i class="fa-solid fa-location-pin fa-lg text-light"></i>  <%= creator.location %></p>
-            <p>Tags:</p>
-            <p class='font-16'>#<%= creator.tag1 %></p>
-            <p class='font-16'>#<%= creator.tag2 %></p>
-            <p class='font-16'>#<%= creator.tag3 %></p>
+      <% unless creator.title == "" %>
+      <%= link_to creator_path(creator) do %>
+        <div class="creators-card">
+          <div class="creator-info">
+            <% if creator.photo.key  %>
+              <img style="max-height: 200px" src= <%= cl_image_path creator.photo.key %>>
+            <% end  %>
+            <h3 style="margin-left:15px;margin-top:15px"><%= creator.title %></h3>
+            <p style="opacity:0.5"><i style="margin-left:25px" class="fa-solid fa-location-pin fa-lg text-light pin"></i>   <%= creator.location %></p>
+            <% unless creator.tag1 == "" %>
+              <div class="tags d-flex"  style="margin:15px;">
+                <div class="tag"><%= creator.tag1 %></div>
+                <div class="tag"><%= creator.tag2 %></div>
+                <div class="tag"><%= creator.tag3 %></div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
+      <% end %>
+      <% end  %>
     </div>
   </div>
+</div>

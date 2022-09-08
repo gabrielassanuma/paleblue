@@ -9,14 +9,47 @@
     filter: blur(9px)
 }
 
+.heading-container {
+  background-color: rgba(0,0,0, 0.45);
+}
+
+.raffle-container {
+  justify-content: space-between;
+}
+.raffle-information {
+  padding: 15px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255, 0.2);
+  background-color: rgba(0,0,0, 0.65);
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+}
+
+.raffle-img {
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px){
+.md\:w-2\/3 {
+    width: 66.666667%!important;
+}}
+@media (min-width: 768px){
+.md\:w-1\/3 {
+    width: 33.333333%!important;
+    margin-right: 2rem!important;
+}}
+
 .raffle-show {
   color: white;
-  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.4);
-  height: 48vw;
-  margin: 3px 80px;
-  padding: 30px;
-  border-radius: 5px;
-  display: flex;
+  width: 100%;
+  min-height: 80vh;
+  position:relative;
+  margin-top: 100px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
 
   .raffle-show-l {
     display: flex;
@@ -47,21 +80,16 @@
 
   }
 
-  .share-raffle {
-    position: relative;
-    top: 270px;
-    left: 100px;
-
-  }
-
   .share-raffle a {
-    font-size: 40px;
+    font-size: 30px;
     color:white;
+    padding: 10px;
+
   }
 
-  .share-raflle a:hover {
+  .share-raffle a:hover {
     opacity: 0.5;
-    color: #52758a
+    color: #568FB3
   }
 
   .raffle-default-values1 {

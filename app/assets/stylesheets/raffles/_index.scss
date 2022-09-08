@@ -25,26 +25,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  padding: 14px;
-  background-color: rgba(255,255,255, 0.2);
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4);
-  border-radius: 9px;
+  padding: 16px;
 }
 
 .raffle-card {
-  background-color: black;
-  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, 0.2);
+  background-color: rgba(0,0,0, 0.65);
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9px;
   color: white;
-  padding: 10px;
-  height: 100%;
-  width: 100%;
 }
 
 img {
-  object-fit: contain;
-  box-shadow: 1px 1px 3px 0px rgba(255, 255, 255, .2);
-  border-radius: 3px;
+  height: 250px;;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 9px 9px 0px 0px;
 }
 
 .tag {

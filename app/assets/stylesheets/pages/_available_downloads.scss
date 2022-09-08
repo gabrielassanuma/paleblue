@@ -1,6 +1,7 @@
 .download-container {
   color: white;
   width: 100%;
+  min-height: 82vh;
   position:relative;
   margin-top: 100px;
   padding-bottom: 50px;
@@ -19,9 +20,21 @@
     filter: blur(9px)
 }
 
-.downloads {
-  background-color: rgba(255,255,255, 0.2);
+.heading-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4);
+  margin-bottom: 50px;
+}
+
+.files-info {
+  background-color: rgba(0,0,0, 0.65);
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
   border-radius: 9px;
-  color:white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  text-overflow: ellipsis;
+  padding: 5px;
+  margin-bottom: 50px;
 }
