@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row creator-container">
-    <div class="creator-card">
+    <div class="creator-card" style="margin-top: 40px;">
       <div class="col-8">
         <div id="creator-top-left">
           <div id="creator-photo-description">
@@ -41,20 +41,6 @@
       </div>
     </div>
 
-    <div id='creator-bottom-files' data-aos="fade-left">
-      <h2>Creator Files</h2>
-      <% @nfts.each do |files| %>
-        <div class='file-raffle-card'>
-          <p class='font-16'><%= files.name %></p>
-          <hr>
-          <% if files.photos[0].key  %>
-            <% files.photos.each do |file| %>
-              <img src= <%= cl_image_path file.key %>>
-              <% end %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
     <div id='creator-bottom-raffles' data-aos="fade-right">
       <h2>Creator Raffles</h2>
       <div class='scrollmenu'>
