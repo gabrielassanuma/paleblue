@@ -1,14 +1,19 @@
 <div class="bg-img"></div>
   <div class="raffle-show">
-    <div class="heading-container text-center p-3"  style="background-color: rgba(0,0,0, 0.65); position: relative; top: 20px;">
+    <div class="heading-container text-center p-3"  style="background-color: rgba(0,0,0, 0.65);">
         <h1><%= @raffle.name %></h1>
     </div>
     <div class="d-flex raffle-container">
       <div class="md:w-1/3 d-flex">
         <div class="raffle-img">
-          <% if @raffle.token.photo.key  %>
-            <img style="border-radius: 18px;" src= <%= cl_image_path @raffle.token.photo.key %>>
+          <% if @nfts.first.photos.first.key  %>
+            <img style="border-radius: 9px;" src= <%= cl_image_path @nfts.first.photos.first.key %>>
           <% end  %>
+          <div class="raffle-item-icon">
+            <% if @raffle.token.photo.key  %>
+              <img style="border-radius: 9px;" src= <%= cl_image_path @raffle.token.photo.key %>>
+            <% end  %>
+          </div>
         </div>
         <div class="redeem-ticket">
           <%= simple_form_for [@raffle, @redeem] do |f| %>
@@ -19,6 +24,8 @@
         </div>
       </div>
       <div class="md:w-2/3 raffle-information">
+        <p>Raffle Item: <%= @raffle.token.nickname %></p>
+        <p>Raffle Item ID: <%= link_to @raffle.token.tk_address, token_path(@raffle.token)%></p>
         <p>Created at: <%= @raffle.created_at %></p>
         <div class="raffle-tab">
           <main>
@@ -33,8 +40,7 @@
 
             <section id="content1">
               <p>About: <%= @raffle.about %></p><br>
-              <p>Raffle created by: <%= link_to @raffle.creator.title, creator_path(@raffle.creator)%></p>
-              <p><%= @raffle.creator.pale_blue.nickname %>: <%= link_to @raffle.creator.pale_blue.tk_address, token_path(@raffle.creator.pale_blue)%></p>
+              <p>Raffle created by: <%= link_to @raffle.creator.title, creator_path(@raffle.creator)%><br><%= @raffle.creator.pale_blue.nickname %>: <%= link_to @raffle.creator.pale_blue.tk_address, token_path(@raffle.creator.pale_blue)%></p>
             </section>
 
             <section id="content2">
@@ -42,7 +48,7 @@
             <p>Make a donation to this creator!</p>
             <%= simple_form_for [@creator, @donation] do |f| %>
                   <%= f.hidden_field :raffle, value: @raffle.id, as: :hidden %>
-                  <%= f.input :tk_amount, html: { class: "token-amount"} %>
+                  <%= f.input :tk_amount, label: 'Amount', html: { style: "padding:10px;"} %>
                   <%= f.association :token,
                             collection: @user_tokens,
                             label_method: :nickname %>

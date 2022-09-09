@@ -9,6 +9,7 @@
     filter: blur(9px)
 }
 
+
 .form-label {
   margin-top: 15px;
   padding: 10px;
@@ -28,10 +29,18 @@
 
 .raffle-container {
   justify-content: space-between;
+  .form-label {
+    margin-top: 15px;
+    padding: 10px;
+  }
+  .form-control{
+    //width:30%;
+    padding: 10px;
+  }
 }
 .raffle-information {
   padding: 15px;
-  border-radius: 18px;
+  border-radius: 9px;
   border: 1px solid rgba(255,255,255, 0.2);
   background-color: rgba(0,0,0, 0.65);
   box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
@@ -39,9 +48,22 @@
 
 .raffle-img {
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 9px;
   box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+
+  .raffle-item-icon>img {
+  object-fit: cover;
+  border-radius: 9px;
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 70px;
+  height:70px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  }
 }
 
 @media (min-width: 768px){
@@ -64,7 +86,7 @@
   width: 100%;
   min-height: 80vh;
   position:relative;
-  margin-top: 100px;
+  margin-top: 75px;
   padding-bottom: 50px;
   padding-left: 100px;
   padding-right: 100px;

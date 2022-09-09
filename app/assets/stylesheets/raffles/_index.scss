@@ -28,19 +28,29 @@
   padding: 16px;
 }
 
-.raffle-card {
+.raffle-card-index {
   background-color: rgba(0,0,0, 0.65);
   box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9px;
   color: white;
-}
 
-img {
-  height: 250px;;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 9px 9px 0px 0px;
+  .raffle-img-index {
+   object-fit:cover;
+   position:relative;
+  }
+  .raffle-item-icon img {
+    object-fit: cover;
+    border-radius: 9px;
+    box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 70px;
+    height:70px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    //border-radius: 9px 9px 0px 0px;
+  }
 }
 
 .tag {

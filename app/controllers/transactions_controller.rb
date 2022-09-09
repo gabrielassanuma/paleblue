@@ -40,9 +40,9 @@ class TransactionsController < ApplicationController
       raffle_tickets if @transaction.tk_amount >= 2
       if params[:transaction][:raffle]
         @raffle = Raffle.find(params[:transaction][:raffle])
-        redirect_to @raffle, notice: "Transaction was successfully created." and return
+        redirect_to @raffle, notice: "Donation was successful! Obrigado!" and return
       else
-        redirect_to @transaction, notice: "Transaction was successfully created." and return
+        redirect_to @transaction, notice: "Donation was successful! Obrigado!" and return
       end
     else
       render :new, status: :unprocessable_entity
