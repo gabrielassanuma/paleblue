@@ -8,7 +8,7 @@
       <% @creators.each do |creator| %>
       <% unless creator.title == "" %>
       <%= link_to creator_path(creator) do %>
-        <div class="creators-card">
+        <div class="creators-card h-100">
           <div class="creator-info">
             <% if creator.photo.key  %>
               <img style="max-height: 200px" src= <%= cl_image_path creator.photo.key %>>
@@ -30,3 +30,4 @@
     </div>
   </div>
 </div>
+

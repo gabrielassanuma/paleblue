@@ -29,6 +29,7 @@ class RafflesController < ApplicationController
     @redeem = Transaction.new
     @creator = @raffle.creator
     @donation = Transaction.new
+    @nfts = Nft.where(creator: @creator)
     @creator_transactions = []
     Transaction.where(to_user: @creator.file_key.user).each do |transaction|
       @creator_transactions << transaction
@@ -61,8 +62,9 @@ class RafflesController < ApplicationController
     @redemption.from_user = current_user
     @redemption.to_user = User.third
     if @redemption.save
-      @raffle.metadata << @redemption
-      @raffle.save
+      # @raffle.metadata << @redemption
+      # @raffle.save
+      redirect_to @raffle, notice: "Raffle Tickets entered for this item! Obrigado!" and return
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,17 +1,24 @@
-<div class="new-raffle">
-  <div class="new-raffle-content">
-    <%= simple_form_for [@creator, @raffle] do |f| %>
-      <%= f.error_notification %>
-      <h3>Add info about your raffle</h3>
-      <%= f.input :name %>
-      <%= f.input :about, as: :text %>
-      <%= f.simple_fields_for :token do |f| %>
-              <h3>Add a Raffle Item</h3>
-              <%= f.error_notification %>
-              <%= f.input :nickname %>
-              <%= f.input :photo, as: :file %>
-            <% end %>
-      <%= f.button :submit, class: "btn btn-ghost" %>
-    <% end %>
+<div class="bg-img"></div>
+<div class="new-container">
+<h1>New Raffle</h1>
+  <div class="new-raffle h-100" style="border-radius: 9px;
+      background-color: rgba(0,0,0, 0.65);
+    box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);margin-bottom:40px">
+    <div class="new-raffle-content">
+      <%= simple_form_for [@creator, @raffle] do |f| %>
+        <%= f.error_notification %>
+        <h3>Add info about your raffle</h3>
+        <%= f.input :name, label: 'Title' %>
+        <%= f.input :about, as: :text %>
+        <%= f.simple_fields_for :token do |f| %>
+                <h3>Add a Raffle Item</h3>
+                <%= f.error_notification %>
+                <%= f.input :nickname, label: 'Name' %>
+                <%= f.input :photo, as: :file %>
+              <% end %>
+        <%= f.button :submit, class: "btn btn-ghost" %>
+      <% end %>
+    </div>
   </div>
 </div>

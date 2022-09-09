@@ -1,7 +1,16 @@
-<div style="color: white; background-color: #4d4d4d; height: 48vw; margin: auto; width: 40%; padding: 30px; border-radius: 5px;">
-  <%= simple_form_for [@creator, @nft] do |f| %>
-    <%= f.input :name, required: true %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.button :submit, class: "btn btn-ghost" %>
-  <% end %>
+<div class="bg-img"></div>
+<div class="new-container">
+<h1>New Raffle Headline Image</h1>
+  <div class="p-3"style="background-color: rgba(0,0,0, 0.65);
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);">
+    <%= simple_form_for [@creator, @nft] do |f| %>
+      <%= f.input :name, required: true %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, class: "btn btn-ghost" %>
+    <% end %>
+  </div>
+  </div>
 </div>

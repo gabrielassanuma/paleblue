@@ -8,11 +8,21 @@
       <% @raffles.each do |raffle| %>
       <% unless raffle.name == "" %>
         <%= link_to raffle_path(raffle) do%>
-          <div class="raffle-card">
+          <div class="h-100 raffle-card-index">
             <div class="raffle-info">
-              <% if raffle.token.photo.key  %>
-                <img style="max-height: 200px" src= <%= cl_image_path raffle.token.photo.key %>>
-              <% end  %>
+              <div class="raffle-img-index">
+                <%  nfts = Nft.find_by(creator: raffle.creator) %>
+                <% unless nfts.nil?  %>
+                  <% if nfts.photos.first.key  %>
+                    <img id="campaign" src= <%= cl_image_path nfts.photos.first.key %>>
+                  <% end  %>
+                  <div class="raffle-item-icon">
+                    <% if raffle.token.photo.key  %>
+                      <img src= <%= cl_image_path raffle.token.photo.key %>>
+                    <% end  %>
+                  </div>
+                <% end  %>
+              </div>
               <h3 style="margin-left:15px;margin-top:15px"><%=raffle.name%></h3>
               <p style="margin-left:15px;font-weight:100;">by <%= raffle.creator.title %></p>
               <% unless raffle.tag1 == "" %>
