@@ -66,7 +66,7 @@ class RafflesController < ApplicationController
       # @raffle.save
       redirect_to @raffle, notice: "Raffle Tickets entered for this item! Obrigado!" and return
     else
-      render :new, status: :unprocessable_entity
+      redirect_to raffle_path(@raffle), notice: "Raffle Tickets failed! Try again!" and return
     end
   end
 
