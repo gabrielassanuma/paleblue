@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :wlt_address, uniqueness: true
   after_validation :generate_hash, on: :create
-  # after_create :send_tokens
+  after_create :send_tokens
   has_many :transactions_to, foreign_key: :to_user, class_name: 'Transaction', dependent: :destroy
   has_many :transactions_from, foreign_key: :from_user, class_name: 'Transaction', dependent: :destroy
   has_many :tk_balances, foreign_key: :user, class_name: 'TkBalance', dependent: :destroy
@@ -35,11 +35,11 @@ class User < ApplicationRecord
     9.times do |index|
       # Seed / Deposit Site Wallet
       this_balance = TkBalance.where(user: User.fourth).where(token: Token.find(index + 5)).first
-      this_balance.tk_amount += 36
+      this_balance.tk_amount += 18
       this_balance.save
 
       this_item = Token.find(index + 5)
-      this_item.minted_so_far += 36
+      this_item.minted_so_far += 18
       this_item.save
 
       # Fund User
@@ -50,7 +50,7 @@ class User < ApplicationRecord
 
       # Send
       Transaction.create(
-        tk_amount: 36,
+        tk_amount: 18,
         token: Token.find(index + 5),
         from_user: User.fourth,
         to_user: self
