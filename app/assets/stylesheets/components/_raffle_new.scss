@@ -1,6 +1,16 @@
+.bg-img{
+  background-image: url('banner.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  position: fixed;
+  min-height: 100vh;
+  filter: blur(9px)
+}
 .new-raffle {
   color: white;
-  background-color: #4d4d4d;
+  //background-color: #4d4d4d;
   height: 48vw;
   margin: auto;
   width: 40%;
@@ -12,5 +22,14 @@
     display: flex;
     justify-content: space-around;
 
+  }
+
+  .form {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+    max-width: 450px;
+    margin: auto;
+    border-radius: 10px;
   }
 }
