@@ -24,7 +24,7 @@ puts 'Destroying creators'
 Creator.destroy_all
 
 puts "Generate users..."
-password = "111111"
+password = SecureRandom.hex(8)
 
 site_users = [
   'PaleBlue ID Generator',
