@@ -1,0 +1,29 @@
+.bg-img{
+  background-image: url('banner.jpg');
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    position: fixed;
+    min-height: 100vh;
+    filter: blur(9px)
+}
+
+.token-container {
+  color: white;
+  width: 100%;
+  min-height: 80vh;
+  position:relative;
+  margin-top: 75px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.tk-info {
+  background-color: rgba(0,0,0, 0.65);
+  padding: 15px;
+  border-radius: 9px;
+  border: 1px solid rgba(255,255,255, 0.2);
+  box-shadow: 2px 2px 3px 0px rgba(255, 255, 255, 0.3);
+  margin-top:30px;
+}

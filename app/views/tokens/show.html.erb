@@ -1,28 +1,40 @@
-<div class="mt-5" style="text-align:center;color:white">
-<h2><strong>Token Nickname: </strong><%= @token.nickname %></h2>
-<h4><strong>Token Address: </strong><%= @token.tk_address %></h4>
-<%  if @token.unlimited %>
-  <h4><strong>Maximum supply:</strong> unlimited</h4>
-<% else %>
-  <h4><strong>Maximum supply:</strong> <%= @token.max_mint %></h4>
-<% end %>
+<div class="bg-img"></div>
+<div class="token-container" style="text-align:center;color:white">
+  <div class="token" style="background-color: rgba(0,0,0, 0.65);">
+    <div class="token-info text-center p-3"  style="box-shadow:none;">
+      <h1>Token Details</h1>
+    </div>
+  </div>
+  <div class="tk-info">
+    <h2><strong>Nickname: </strong><%= @token.nickname %></h2>
+    <h4><strong>Address: </strong><%= @token.tk_address %></h4>
+  </div>
+  <div class="tk-info">
+    <%  if @token.unlimited %>
+      <h4><strong>Maximum supply:</strong> unlimited</h4>
+    <% else %>
+      <h4><strong>Maximum supply:</strong> <%= @token.max_mint %></h4>
+    <% end %>
 
-<h4><strong>Token(s) minted so far: </strong><%= @token.minted_so_far %></h4>
+    <h4><strong>Token(s) minted so far: </strong><%= @token.minted_so_far %></h4>
 
-<%  if @token.unlimited == false && @token.max_mint == @token.minted_so_far %>
-  <p>-- Limit Reached --</p>
-  <p>-- No more of this token can be generated --</p>
-<% else %>
-  <p>Limit is not yet reached. Keep printing...</p>
-<% end %><br>
+    <%  if @token.unlimited == false && @token.max_mint == @token.minted_so_far %>
+      <p>-- Limit Reached --</p>
+      <p>-- No more of this token can be generated --</p>
+    <% else %>
+      <p>Limit is not yet reached. Keep printing...</p>
+    <% end %>
+  </div>
+  <div class="tk-info">
+    <h3><strong>Mint Authority Nickname:</strong> <%= @token.user.nickname %></h3>
+    <h3><strong>Mint Authority Address:</strong> <%= link_to @token.user.wlt_address, account_path(@token.user)%></h3>
+  </div>
+  <div class="tk-info">
+  <h3>Current Owner(s):</h3><br>
+    <% @owners.each_with_index do |owner, index| %>
+      <p>Wallet Nickname: <%= owner.nickname %></p>
+      <p>Wallet Address: <%= link_to owner.wlt_address, account_path(owner)%></p>
+      <p>Balance: <%= @balances[index]%></p>
+    <% end %></div>
 
-
-<h3><strong>Mint Authority Nickname:</strong> <%= @token.user.nickname %></h3>
-<h3><strong>Mint Authority Address:</strong> <%= link_to @token.user.wlt_address, account_path(@token.user)%></h3><br>
-
-<div><h3>Current Owner(s):</h3><br>
-  <% @owners.each_with_index do |owner, index| %>
-    <p>Wallet Nickname: <%= owner.nickname %></p>
-    <p>Wallet Address: <%= link_to owner.wlt_address, account_path(owner)%></p>
-    <p>Balance: <%= @balances[index]%></p>
-  <% end %></div>
+</div>
